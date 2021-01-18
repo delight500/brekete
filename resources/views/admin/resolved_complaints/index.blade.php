@@ -41,9 +41,9 @@
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        @if (count($resolved)>0)
+                                        @if (count($resolvedt)>0)
 
-                                            @foreach ($resolved as $resolve)
+                                            @foreach ($resolvedt as $resolve)
                                                 <tr>
                                                     <td>{{ $loop->iteration }}</td>
                                                     <td>{{ $resolve->name }}</td>

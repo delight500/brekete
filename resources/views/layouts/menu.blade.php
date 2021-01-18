@@ -12,7 +12,7 @@
     <a href="{{ route('complaints') }}" class="nav-link ">
        <i class="nav-icon fas fa-th"></i>
         <p>All Complaints</p>
-        <span class="right badge badge-danger">5</span>
+        <span class="right badge badge-success">{{$complaints ?? '0'}}</span>
     </a>
 </li>
 
@@ -21,7 +21,7 @@
     <a href="{{ route('awaiting') }}" class="nav-link ">
        <i class="nav-icon fas fa-th"></i>
         <p>Awaiting Review</p>
-        <span class="right badge badge-danger">5</span>
+        <span class="right badge badge-info">{{$awaiting ?? '0'}}</span>
     </a>
 </li>
 @endcan
@@ -31,6 +31,7 @@
     <a href="/admin/pending" class="nav-link ">
        <i class="nav-icon fas fa-th"></i>
         <p>Pending Complaints</p>
+        <span class="right badge badge-warning">{{$pending ?? '0'}}</span>
     </a>
 </li>
 
@@ -40,7 +41,7 @@
     <a href="/admin/resolved" class="nav-link ">
        <i class="nav-icon fas fa-th"></i>
         <p>Resolved Complaints</p>
-        <span class="right badge badge-danger">5</span>
+        <span class="right badge badge-success">{{$resolved ?? '0'}}</span>
     </a>
 </li>
 @endcan
@@ -52,7 +53,7 @@
     <a href="/admin/flagged" class="nav-link ">
        <i class="nav-icon fas fa-th"></i>
         <p>Flagged Complaints</p>
-        <span class="right badge badge-danger">5</span>
+        <span class="right badge badge-danger">{{$flagged ?? '0'}}</span>
     </a>
 </li>
 
@@ -62,7 +63,7 @@
     <a href="/admin/testimonials" class="nav-link ">
        <i class="nav-icon fas fa-th"></i>
         <p>Testimonials</p>
-        <span class="right badge badge-danger">5</span>
+        <span class="right badge badge-primary">{{$testimonial ?? '0'}}</span>
     </a>
 </li>
 
@@ -73,7 +74,6 @@
     <a href="{{ route('users.view') }}" class="nav-link ">
        <i class="nav-icon fas fa-users"></i>
         <p>Users</p>
-        <span class="right badge badge-danger">5</span>
     </a>
 </li>
 

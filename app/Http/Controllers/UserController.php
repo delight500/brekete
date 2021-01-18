@@ -14,6 +14,11 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use App\Models\AwaitingReview;
+use App\Models\Complaints;
+use App\Models\FlaggedComplaints;
+use App\Models\ResolvedComplaints;
+use App\Models\Testimonial;
 
 class UserController extends Controller
 {
@@ -46,6 +51,12 @@ class UserController extends Controller
             'users' => $users,
             'recent_activites' => $recent_activites,
             'total_activity' => $total_activity,
+            'awaiting' => $awaiting,
+            'pending' =>  $pending,
+            'resolved' => $resolved,
+            'complaints' => $complaints,
+            'testimonial' => $testimonial,
+            'flagged' => $flagged
         ]);
     }
 

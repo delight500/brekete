@@ -8,6 +8,10 @@ use Illuminate\Support\Facades\Session;
 use App\Models\Complaints;
 use App\Models\ComplaintUploads;
 use Illuminate\Support\Facades\Storage;
+use App\Models\ResolvedComplaints;
+use App\Models\Testimonial;
+use Illuminate\Support\Facades\DB;
+use App\Models\FlaggedComplaints;
 
 
 class AwaitingReviewController extends Controller
@@ -29,9 +33,22 @@ class AwaitingReviewController extends Controller
      */
     public function index()
     {
-         $complaints = AwaitingReview::orderBY('id', 'DESC')->get();;
+        $complaints = count(Complaints::all());
+        $resolved = count(ResolvedComplaints::all());
+        $pending = count(DB::table('complaints')->where('complaint_status', 'pending')->get());
+        $testimonial = count(Testimonial::all());
+        $awaiting = count(AwaitingReview::all());
+        $flagged = count(FlaggedComplaints::all());
+
+         $complaint = AwaitingReview::orderBY('id', 'DESC')->get();;
             return view('admin.awaiting_review.view')->with([
+            'complaint' => $complaint,
+            'awaiting' => $awaiting,
+            'pending' =>  $pending,
+            'resolved' => $resolved,
             'complaints' => $complaints,
+            'testimonial' => $testimonial,
+            'flagged' => $flagged
         ]);
     }
 

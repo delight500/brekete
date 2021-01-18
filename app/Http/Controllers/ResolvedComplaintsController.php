@@ -8,15 +8,32 @@ use App\Models\User;
 use App\Models\Role;
 use App\Models\Status;
 use App\Models\Activites;
+use App\Models\AwaitingReview;
+use App\Models\Complaints;
+use App\Models\FlaggedComplaints;
+use App\Models\Testimonial;
+use Illuminate\Support\Facades\DB;
 
 class ResolvedComplaintsController extends Controller
 {
      public function index()
     {
-
-       $resolved = ResolvedComplaints::all();
+        $complaints = count(Complaints::all());
+        $resolved = count(ResolvedComplaints::all());
+        $pending = count(DB::table('complaints')->where('complaint_status', 'pending')->get());
+        $testimonial = count(Testimonial::all());
+        $awaiting = count(AwaitingReview::all());
+        $flagged = count(FlaggedComplaints::all());
+        $resolvedt = ResolvedComplaints::all();
+        
         return view('admin.resolved_complaints.index')->with([
+            'resolvedt' => $resolvedt,
+            'awaiting' => $awaiting,
+            'pending' =>  $pending,
             'resolved' => $resolved,
+            'complaints' => $complaints,
+            'testimonial' => $testimonial,
+            'flagged' => $flagged
         ]);
     }
 

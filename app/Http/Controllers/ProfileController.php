@@ -10,19 +10,35 @@ use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
-
+use App\Models\AwaitingReview;
+use App\Models\Complaints;
+use App\Models\FlaggedComplaints;
+use App\Models\ResolvedComplaints;
+use App\Models\Testimonial;
+use Illuminate\Support\Facades\DB;
 
 class ProfileController extends Controller
 {
     public function viewProfile()
     {
+        $complaints = count(Complaints::all());
+        $resolved = count(ResolvedComplaints::all());
+        $pending = count(DB::table('complaints')->where('complaint_status', 'pending')->get());
+        $testimonial = count(Testimonial::all());
+        $awaiting = count(AwaitingReview::all());
+        $flagged = count(FlaggedComplaints::all());
 
         $user = Auth::user();
         return view('admin.profile.index')->with(
             [
                 'user' => $user,
+                'awaiting' => $awaiting,
+                'pending' =>  $pending,
+                'resolved' => $resolved,
+                'complaints' => $complaints,
+                'testimonial' => $testimonial,
+                'flagged' => $flagged
             ]
         );
     }

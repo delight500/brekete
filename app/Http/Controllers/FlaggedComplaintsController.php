@@ -9,15 +9,31 @@ use App\Models\Activites;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
-
+use App\Models\AwaitingReview;
+use App\Models\ResolvedComplaints;
+use App\Models\Testimonial;
+use Illuminate\Support\Facades\DB;
+ 
 class FlaggedComplaintsController extends Controller
 {
   public function index()
     {
+        $complaints = count(Complaints::all());
+        $resolved = count(ResolvedComplaints::all());
+        $pending = count(DB::table('complaints')->where('complaint_status', 'pending')->get());
+        $testimonial = count(Testimonial::all());
+        $awaiting = count(AwaitingReview::all());
+        $flagged = count(FlaggedComplaints::all());
+        $flagged_complaints = FlaggedComplaints::orderBY('id', 'DESC')->get();
 
-        $complaints = FlaggedComplaints::orderBY('id', 'DESC')->get();
         return view('admin.flagged_complaints.index')->with([
+            'flagged_complaints' => $flagged_complaints,
+            'awaiting' => $awaiting,
+            'pending' =>  $pending,
+            'resolved' => $resolved,
             'complaints' => $complaints,
+            'testimonial' => $testimonial,
+            'flagged' => $flagged
         ]);
     }
 
