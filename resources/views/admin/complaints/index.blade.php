@@ -41,9 +41,9 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @if (count($complaints)>0)
+                                    @if (count($complaint)>0)
 
-                                    @foreach ($complaints as $complaint)
+                                    @foreach ($complaint as $complaint)
                                     <tr>
                                     <td>{{ $loop->iteration }}</td>
                                     <td>{{ $complaint->name }}</td>

@@ -19,7 +19,7 @@
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
     </div>
-    <!-- /.content-header -->
+    <!-- /.content-header --> 
 
     <!-- Main content -->
     <section class="content">
