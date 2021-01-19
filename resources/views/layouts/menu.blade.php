@@ -77,6 +77,13 @@
     </a>
 </li>
 
+<li class="nav-item">
+    <a href="{{ route('staffs.view') }}" class="nav-link ">
+       <i class="nav-icon fas fa-users"></i>
+        <p>Staffs</p>
+    </a>
+</li>
+
 @can('total-control')
 <li class="nav-item">
     <a href="{{ route('users.view') }}" class="nav-link ">

@@ -1,9 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Role;
 use App\Models\Status; 
@@ -19,8 +17,10 @@ use App\Models\Complaints;
 use App\Models\FlaggedComplaints;
 use App\Models\ResolvedComplaints;
 use App\Models\Testimonial;
+use App\Models\Staffs;
+use Illuminate\Http\Request;
 
-class UserController extends Controller
+class StaffController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -38,14 +38,6 @@ class UserController extends Controller
      */
     public function index()
     {
-
-           $recent_activites = Activites::where('status', 'pending')->orderBY('id', 'DESC')
-            ->limit(7)
-            ->get();
-
-        $total_activity = count(Activites::all()->where('status', 'pending'));
-        $users = User::whereNotIn('id', [1])
-        ->get();
         $complaints = count(Complaints::all());
         $resolved = count(ResolvedComplaints::all());
         $pending = count(DB::table('complaints')->where('complaint_status', 'pending')->get());
@@ -53,9 +45,17 @@ class UserController extends Controller
         $awaiting = count(AwaitingReview::all());
         $flagged = count(FlaggedComplaints::all());
         $testimonials = Testimonial::all();
+
+        $recent_activites = Activites::where('status', 'pending')->orderBY('id', 'DESC')
+        ->limit(7)
+        ->get();
+
+        $total_activity = count(Activites::all()->where('status', 'pending'));
+        $staffs = Staffs::all();
+
         
-        return view('admin.users.index')->with([
-            'users' => $users,
+        return view('admin.staffs.index')->with([
+            'staffs' => $staffs,
             'recent_activites' => $recent_activites,
             'total_activity' => $total_activity,
             'awaiting' => $awaiting,
@@ -75,15 +75,11 @@ class UserController extends Controller
     public function create()
     {
         if (Gate::denies('manage-users')) {
-            return redirect(route('users.view'));
+            return redirect(route('staffs.view'));
         }
-        $auth = Auth::user();
-        $roles = Role::select('name', 'id')->get();
-        $status = Status::select('name', 'id')->get();
-        return view('admin.users.create')->with([
-            'roles' => $roles,
-            'status' => $status,
-            'user' => $auth,
+        
+        return view('admin.staffs.create')->with([
+           
         ]);
     }
 
@@ -102,34 +98,32 @@ class UserController extends Controller
                 'string',
                 'email',
                 'max:255',
-                'unique:users',
+                'unique:staffs',
             ],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'phonenumber' => ['required', 'string', 'min:10',],
+            'position' => ['required', 'string', 'max:255'],
         ]);
         $validator->validate();
 
-        $user = User::create([
+        $user = Staffs::create([
             'name' => $request->name,
             'email' => $request->email,
-            'password' => Hash::make($request->password),
-            'status_id' => $request->status_id,
+            'phone_number' => $request->phonenumber,
+            'position' => $request->position,
 
         ]);
-
-        $role_id = $request->role_id;
-        $user->roles()->attach($role_id);
         $auth = Auth::user();
 
         Activites::create([
-            'description' =>$auth->name.' Added ' . $request->name . ' to the users table',
+            'description' =>$auth->name.' Added ' . $request->name . ' to the staffs table',
                 'username' => $auth->name,
                 'privilage' => implode(' ', $auth->roles->pluck('name')->toArray()),
                 'status' => 'pending'
 
         ]);
 
-        Session::flash('flash_message', 'New User successfully added!');
-        return redirect(route('users.view'));
+        Session::flash('flash_message', 'New Staff successfully added!');
+        return redirect(route('staffs.view'));
       }
 
     /**
@@ -155,15 +149,10 @@ class UserController extends Controller
 //             return redirect(route('users.view'));
 //         }
 
-        $user = User::findOrFail($id);
-        $auth = Auth::user();
-        $roles = Role::all();
-        $status = Status::select('name', 'id')->get();
-        return view('admin.users.edit')->with([
-            'user' => $user,
-            'roles' => $roles,
-            'status' => $status,
-            'auth' => $auth,
+        $staffs = Staffs::findOrFail($id);
+    
+        return view('admin.staffs.edit')->with([
+            'staffs' => $staffs,
         ]);
     }
 
@@ -179,9 +168,8 @@ class UserController extends Controller
         $validator = Validator::make($request->all(), [
             'name' => ['required', 'string', 'max:255'],
             'email_address' => 'sometimes|required|email|unique:users',
-            'role_id' => '',
-            'status_id' => '',
-            'gender' => [],
+            'phonenumber' => '',
+            'position' => '',
         ]);
 
         $validator->validate();
@@ -190,31 +178,25 @@ class UserController extends Controller
         //     return redirect(route('users.view'));
         // }
 
-        User::where('id', $id)->update([
+        Staffs::where('id', $id)->update([
             'name' => $request->name,
             'email' => $request->email,
-            'status_id' => $request->status_id,
+            'phone_number' => $request->phonenumber,
+            'position' => $request->position,
         ]);
 
-        DB::table('role_user')
-            ->where('id', $id)
-            ->update([
-                'role_id' => $request->role_id,
-            ]);
-
+        
 
             $auth = Auth::user();
             Activites::create([
-                'description' =>$auth->name.' updated user '. $request->name .' details',
+                'description' =>$auth->name.' updated staff '. $request->name .' details',
                 'username' => $auth->name,
                 'privilage' => implode(' ', $auth->roles->pluck('name')->toArray()),
                 'status' => 'pending'
-
-
             ]);
 
 
-        Session::flash('flash_message', 'User updated successfully!');
+        Session::flash('flash_message', 'Staff updated successfully!');
         return redirect(route('users.view'));
     }
 
@@ -230,41 +212,24 @@ class UserController extends Controller
         // if (Gate::denies('delete')) {
         //     return redirect(route('users.view'));
         // }
-        $username = DB::table('users')
+        $username = DB::table('staffs')
             ->where('id', $id)
             ->pluck('name')
             ->toArray();
         $name = implode(' ', $username);
         $auth = Auth::user();
         Activites::create([
-            'description' => $auth->name.' removed '.$name.' from the users table',
+            'description' => $auth->name.' removed '.$name.' from the staffs table',
             'username' => $auth->name,
             'privilage' => implode(' ', $auth->roles->pluck('name')->toArray()),
             'status' => 'pending'
         ]);
 
-        $user = User::findOrFail($id);
-        $user->roles()->detach();
-        $user->delete();
-        Session::flash('flash_message', 'User Deleted successfully');
+        $staff = Staffs::findOrFail($id);
+        $staff->delete();
+        Session::flash('flash_message', 'Staff Deleted successfully');
         return redirect()->back();
     }
 
-    public function updatePassword(Request $request, $id)
-    {
-        // if (Gate::denies('add')) {
-        //     return redirect(route('users.view'));
-        // }
-
-        $validator = Validator::make($request->all(), [
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
-        ]);
-        $validator->validate();
-        $update = User::where('id', $id)->update([
-            'password' => Hash::make($request->password),
-        ]);
-        Session::flash('flash_message', 'User password changed successfully!');
-        return redirect()->back();
-    }
-    //
+   
 }
