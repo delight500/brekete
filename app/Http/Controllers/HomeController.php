@@ -41,6 +41,14 @@ class HomeController extends Controller
         ]);
     }
 
+    public function home()
+    {
+    
+        return view('home')->with([
+
+        ]);
+    }
+
     public function store(Request $request)
     {
         $code = rand(100000,999999);

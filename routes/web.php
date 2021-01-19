@@ -20,6 +20,8 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::post('/home', [App\Http\Controllers\HomeController::class, 'store'])->name('home.store');
 Route::post('/home/testimonial', [App\Http\Controllers\HomeController::class, 'storeTestimonial'])->name('testimonial.store');
 
+Route::get('/index', [App\Http\Controllers\HomeController::class, 'home'])->name('dog');
+
  
 Auth::routes();
      
@@ -40,6 +42,14 @@ Route::post('/users/edit/{user_id}', [App\Http\Controllers\UserController::class
 Route::post('/users/change_password/{user_id}', [App\Http\Controllers\UserController::class,  'updatePassword'])->name('users.change_password');
 Route::delete('/users/delete/{user_id}', [App\Http\Controllers\UserController::class,  'destroy'])->name('users.delete');
 
+// STAFF CRUD
+Route::get('/staffs', [App\Http\Controllers\StaffController::class,  'index'])->name('staffs.view');
+Route::get('/staffs/create', [App\Http\Controllers\StaffController::class,'create'])->name('staffs.create');
+Route::post('/staffs/create',  [App\Http\Controllers\StaffController::class, 'store'])->name('staffs.store');
+Route::get('/staffs/edit/{user_id}',  [App\Http\Controllers\StaffController::class, 'edit'])->name('staffs.edit');
+Route::post('/staffs/edit/{user_id}', [App\Http\Controllers\StaffController::class, 'update'])->name('staffs.update');
+
+Route::delete('/staffs/delete/{user_id}', [App\Http\Controllers\StaffController::class,  'destroy'])->name('staffs.delete');
 });
 
 // AWAITING CRUD

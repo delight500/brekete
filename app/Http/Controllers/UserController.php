@@ -46,6 +46,13 @@ class UserController extends Controller
         $total_activity = count(Activites::all()->where('status', 'pending'));
         $users = User::whereNotIn('id', [1])
         ->get();
+        $complaints = count(Complaints::all());
+        $resolved = count(ResolvedComplaints::all());
+        $pending = count(DB::table('complaints')->where('complaint_status', 'pending')->get());
+        $testimonial = count(Testimonial::all());
+        $awaiting = count(AwaitingReview::all());
+        $flagged = count(FlaggedComplaints::all());
+        $testimonials = Testimonial::all();
         
         return view('admin.users.index')->with([
             'users' => $users,
