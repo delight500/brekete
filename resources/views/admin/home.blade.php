@@ -30,8 +30,7 @@
             <!-- small box -->
             <div class="small-box bg-danger">
               <div class="inner">
-                <h3>
-                1                </h3>
+                <h3>{{$complaints ?? '0'}}</h3>
 
                 <p>Complaints</p>
               </div>
@@ -47,9 +46,7 @@
             <!-- small box -->
             <div class="small-box bg-success">
               <div class="inner">
-                <h3>
-
-                           1         </h3>
+                <h3>{{$resolved ?? '0'}}</h3>
                 <p>Resolved Complaints</p>
               </div>
               <div class="icon">
@@ -63,9 +60,7 @@
             <!-- small box -->
             <div class="small-box bg-warning">
               <div class="inner">
-                <h3>
-
-                           0                </h3>
+                <h3>{{$pending ?? '0'}}</h3>
 
                 <p>Pending Complaints</p>
               </div>
@@ -80,9 +75,7 @@
 
             <div class="small-box bg-info">
               <div class="inner">
-                <h3>
-
-                           0                </h3>
+                <h3>{{$awaiting ?? '0'}}</h3>
 
                 <p>Awaiting Review</p>
               </div>
@@ -205,6 +198,87 @@
         <!-- Main row -->
 
         <!-- /.row (main row) -->
+      </div><!-- /.container-fluid -->
+    </section>
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-4">
+            <!-- AREA CHART -->
+           
+            <!-- /.card -->
+
+            <!-- DONUT CHART -->
+            <div class="card card-primary">
+              <div class="card-header">
+                <h3 class="card-title">Complaints</h3>
+
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
+                  </button>
+                  
+                </div>
+              </div>
+              <div class="card-body">
+                <canvas id="donutChart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+
+          
+
+          </div>
+          <!-- /.col (LEFT) -->
+          <div class="col-md-4">
+            <!-- LINE CHART -->
+              <!-- PIE CHART -->
+              <div class="card card-primary">
+              <div class="card-header">
+                <h3 class="card-title">Resolved Vs Pending</h3>
+
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
+                  </button>
+                  
+                </div>
+              </div>
+              <div class="card-body">
+                <canvas id="pieChart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->     
+
+            
+
+          </div>
+          <div class="col-md-4">
+            <!-- LINE CHART -->
+              <!-- PIE CHART -->
+              <div class="card card-primary">
+              <div class="card-header">
+                <h3 class="card-title">Complaints Vs Testimonials</h3>
+
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
+                  </button>
+                  
+                </div>
+              </div>
+              <div class="card-body">
+                <canvas id="pieChart2" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->     
+
+            
+
+          </div>
+          <!-- /.col (RIGHT) -->
+        </div>
+        <!-- /.row -->
       </div><!-- /.container-fluid -->
     </section>
     </div>
