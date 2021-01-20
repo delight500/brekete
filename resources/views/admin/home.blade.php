@@ -19,7 +19,7 @@
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
     </div>
-    <!-- /.content-header --> 
+    <!-- /.content-header -->
 
     <!-- Main content -->
     <section class="content">
@@ -205,7 +205,7 @@
         <div class="row">
           <div class="col-md-4">
             <!-- AREA CHART -->
-           
+
             <!-- /.card -->
 
             <!-- DONUT CHART -->
@@ -216,7 +216,7 @@
                 <div class="card-tools">
                   <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
                   </button>
-                  
+
                 </div>
               </div>
               <div class="card-body">
@@ -226,7 +226,7 @@
             </div>
             <!-- /.card -->
 
-          
+
 
           </div>
           <!-- /.col (LEFT) -->
@@ -240,7 +240,7 @@
                 <div class="card-tools">
                   <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
                   </button>
-                  
+
                 </div>
               </div>
               <div class="card-body">
@@ -248,9 +248,9 @@
               </div>
               <!-- /.card-body -->
             </div>
-            <!-- /.card -->     
+            <!-- /.card -->
 
-            
+
 
           </div>
           <div class="col-md-4">
@@ -263,7 +263,7 @@
                 <div class="card-tools">
                   <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
                   </button>
-                  
+
                 </div>
               </div>
               <div class="card-body">
@@ -271,9 +271,9 @@
               </div>
               <!-- /.card-body -->
             </div>
-            <!-- /.card -->     
+            <!-- /.card -->
 
-            
+
 
           </div>
           <!-- /.col (RIGHT) -->
@@ -284,3 +284,4 @@
     </div>
 
 @endsection
+@extends('layouts.chartxs.chart')

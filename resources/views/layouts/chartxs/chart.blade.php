@@ -5,7 +5,7 @@
      * Here we will create a few charts using ChartJS
      */
 
- 
+
 
     //-------------
     //- DONUT CHART -
@@ -19,7 +19,7 @@
     //For douhnut data
     var donutData        = {
       labels: [
-          'Complaints', 
+          'Complaints',
           'Resolved',
           'Pending'
                 ],
@@ -30,7 +30,7 @@
         }
       ]
     }
-    
+
     var donutOptions     = {
       maintainAspectRatio : false,
       responsive : true,
@@ -40,7 +40,7 @@
     var donutChart = new Chart(donutChartCanvas, {
       type: 'doughnut',
       data: donutData,
-      options: donutOptions      
+      options: donutOptions
     })
 
     //-------------
@@ -50,7 +50,7 @@
 
     //For pie data1
     var pieData1        = {
-      labels: [ 
+      labels: [
           'Resolved',
           'Pending'
                 ],
@@ -72,12 +72,12 @@
     var pieChart = new Chart(pieChartCanvas, {
       type: 'pie',
       data: pieData1,
-      options: pieOptions      
+      options: pieOptions
     })
 
      //For pie data2
      var pieData2      = {
-      labels: [ 
+      labels: [
           'Complaints',
           'Testimonial'
                 ],
@@ -104,9 +104,9 @@
     var pieChart = new Chart(pieChartCanvas, {
       type: 'doughnut',
       data: pieData2,
-      options: pieOptions      
+      options: pieOptions
     })
 
- 
+
   })
 </script>
