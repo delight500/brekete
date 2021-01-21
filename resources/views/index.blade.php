@@ -24,6 +24,7 @@
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   <!-- Vendor stylesheets  -->
   <link rel="stylesheet" href="css/main1.css">
+  <!-- <link rel="stylesheet" href="css/bootstrap.css"> -->
   <!-- Custom stylesheet -->
 </head>
 
@@ -525,6 +526,7 @@
                     <div class="form-group">
                       <label>Country of Residence</label><br>
                       <select name="country" class="form-control" >
+                        <option value="">Select Country</option>
                       @foreach ($countries as $country)
                             <option value="{{ $country->name }}">{{ $country->name }}</option>
                         @endforeach                      
