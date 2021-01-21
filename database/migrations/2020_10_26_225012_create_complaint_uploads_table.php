@@ -16,7 +16,11 @@ class CreateComplaintUploadsTable extends Migration
         Schema::create('complaint_uploads', function (Blueprint $table) {
             $table->unsignedBigInteger('complaint_id');
             $table->foreign('complaint_id')->references('id')->on('complaints')->onDelete('cascade');
-            $table->string('filename');
+            $table->string('affidavit');
+            $table->string('passport');
+            $table->json('others');
+            $table->string('month');
+            $table->string('year');                      
             $table->timestamps();
         });
     }

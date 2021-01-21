@@ -109,7 +109,7 @@ class AwaitingReviewController extends Controller
 
         Complaints::where('id', $id)->update(['complaint_status' => 'flagged']);
         $complaint = Complaints::where('id', $id)->get();
-        AwaitingReview::find($id)->replicate()->setTable('flagged_complaints')->save();
+        Complaints::find($id)->replicate()->setTable('flagged_complaints')->save();
         AwaitingReview::where('id', $id)->delete();
         $track = Complaints::where('id', $id)->get();
         $code = implode(' ', $track->pluck('tracking_code')->toArray());

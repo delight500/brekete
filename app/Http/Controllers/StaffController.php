@@ -149,10 +149,10 @@ class StaffController extends Controller
 //             return redirect(route('users.view'));
 //         }
 
-        $staffs = Staffs::findOrFail($id);
+        $staff = Staffs::findOrFail($id);
 
         return view('admin.staffs.edit')->with([
-            'staffs' => $staffs,
+            'staff' => $staff,
         ]);
     }
 
@@ -163,20 +163,9 @@ class StaffController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
     public function update(Request $request, $id)
     {
-        $validator = Validator::make($request->all(), [
-            'name' => ['required', 'string', 'max:255'],
-            'email_address' => 'sometimes|required|email|unique:users',
-            'phonenumber' => '',
-            'position' => '',
-        ]);
-
-        $validator->validate();
-
-        // if (Gate::denies('add')) {
-        //     return redirect(route('users.view'));
-        // }
 
         Staffs::where('id', $id)->update([
             'name' => $request->name,
@@ -195,7 +184,7 @@ class StaffController extends Controller
 
 
         Session::flash('flash_message', 'Staff updated successfully!');
-        return redirect(route('users.view'));
+        return redirect(route('staffs.view'));
     }
 
     /**

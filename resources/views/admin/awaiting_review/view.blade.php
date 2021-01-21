@@ -33,7 +33,7 @@
                                         <th>S/N</th>
                                         <th>Name</th>
                                         <th>Phone</th>
-                                        <th>Complaint</th>
+                                        <th>Staff Assigned</th>
                                         <th>Complaint Type</th>
                                         <th>Date Lodged</th>
                                         <th>Status</th>
@@ -48,10 +48,10 @@
                                     <td>{{ $loop->iteration }}</td>
                                     <td>{{ $complaint->name }}</td>
                                     <td>{{ $complaint->phone_number }}</td>
-                                    <td>{{ $complaint->complaint }}</td>
+                                    <td>{{ $complaint->staff_assigned }}</td>
                                     <td>{{ $complaint->complaint_type }}</td>
                                   <td>{{ $complaint->created_at }}</td>
-                                  <td><span class="right badge badge-success">{{ $complaint->complaint_status }}</span></td>
+                                  <td><span class="right badge badge-info">{{ $complaint->complaint_status }}</span></td>
                                     <td>
                                     <!--modal begin-->
 

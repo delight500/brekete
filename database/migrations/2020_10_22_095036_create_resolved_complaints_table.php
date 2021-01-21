@@ -26,7 +26,10 @@ class CreateResolvedComplaintsTable extends Migration
             $table->string('state')->nullable();
             $table->string('country');
             $table->string('complaint_type');
-            $table->string('assigned_staff');
+            $table->string('staff_assigned');
+            $table->string('user_id');
+            $table->string('month');
+            $table->string('year');
             $table->timestamps();
         });
     }

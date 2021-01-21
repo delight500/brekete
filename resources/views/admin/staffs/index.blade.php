@@ -81,9 +81,9 @@
 
                             <div class="col-md-6">
 
-                            <i class="fa fa-trash" data-toggle="modal" data-target="{{'#exampleModal'. $staff ?? ''->id}}" style="color: red"></i>
+                            <i class="fa fa-trash" data-toggle="modal" data-target="{{'#exampleModal'. $staff->id}}" style="color: red"></i>
 
-                            <div class="modal fade" id="{{'exampleModal' . $staff ?? ''->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal fade" id="{{'exampleModal' . $staff->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
                                 <div class="modal-header">
@@ -97,7 +97,7 @@
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                    <form action="{{'/admin/staffs/delete/'. $staff ?? ''->id}}" method="post" >
+                                    <form action="{{'/admin/staffs/delete/'. $staff->id}}" method="post" >
                                 @method('delete')
                                 @csrf
                                 <button type="submit" class="btn btn-danger">Delete</button>

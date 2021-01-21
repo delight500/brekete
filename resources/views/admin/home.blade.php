@@ -30,9 +30,9 @@
             <!-- small box -->
             <div class="small-box bg-danger">
               <div class="inner">
-                <h3>{{$complaints ?? '0'}}</h3>
+                <h3>{{$flagged ?? '0'}}</h3>
 
-                <p>Complaints</p>
+                <p>Flagged Complaints</p>
               </div>
                <a href="">
               <div class="icon">
@@ -282,6 +282,7 @@
       </div><!-- /.container-fluid -->
     </section>
     </div>
+    @include('layouts.chartxs.chart')
 
 @endsection
-@extends('layouts.chartxs.chart')
+

@@ -46,6 +46,7 @@
 @yield('third_party_scripts')
 <script>
    $('#data').DataTable();
+   $('#example').DataTable();
 </script>
 
 </body>
