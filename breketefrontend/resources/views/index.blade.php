@@ -743,9 +743,9 @@
   <script src="js/custom.js"></script>
   @if (Session::has('flash_message'))
              <script>
-                 $(window).bind("load", function() {
+                //  $(window).bind("load", function() {
                  swal("Congratulations!", "{{ Session::get('flash_message') }}", "success");
-                });
+                // });
             </script>
      @endif
       @if (Session::has('error_message'))

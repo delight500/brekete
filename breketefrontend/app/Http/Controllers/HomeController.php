@@ -102,12 +102,11 @@ class HomeController extends Controller
             'year' => date('Y'),
             'month' => date('m')
         ]);
-   Session::flash('flash_message', 'Complaint was submitted successfully \r\n
-        your complaint tracking code is '.$code.'');
+    Session::flash('flash_message', 'Complaint was submitted successfully. Your complaint tracking code is '.$code.'. Please copy and Keep your complaint tracking code safe.');
         return redirect(route('home'));
-        
-       
-      }
+
+
+      } 
 
     public function storeTestimonial(Request $request)
     {
