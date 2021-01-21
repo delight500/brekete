@@ -15,6 +15,7 @@
     $resolvedvar= {{$resolved}};
     $pendingvar= {{$pending}};
     $testimonialvar= {{$testimonial}};
+
     var donutChartCanvas = $('#donutChart').get(0).getContext('2d')
     //For douhnut data
     var donutData        = {
@@ -105,8 +106,5 @@
       type: 'doughnut',
       data: pieData2,
       options: pieOptions
-    })
-
-
   })
 </script>
