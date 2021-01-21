@@ -30,9 +30,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-       $countries = Country::all();
-       $states = State::all();
-       $complaint_types = ComplaintType::all();
+        $countries = Country::all();
+        $states = State::all();
+        $complaint_types = ComplaintType::all();
 
         return view('index')->with([
             'countries' => $countries,
@@ -41,11 +41,9 @@ class HomeController extends Controller
         ]);
     }
 
-
-
     public function store(Request $request)
     {
-        $code = rand(100000,999999);
+        $code = rand(100000, 999999);
         $complaints = Complaints::create([
             'name' => $request->name,
             'email' => $request->email,
@@ -61,7 +59,7 @@ class HomeController extends Controller
             'staff_assigned' => 'nil',
             'user_id' => 'nil',
             'year' => date('Y'),
-            'month' => date('m')
+            'month' => date('m'),
         ]);
 
         $affidavit = $request->affidavit;
@@ -71,10 +69,9 @@ class HomeController extends Controller
         $others = '';
 
         foreach ($request->others as $photo) {
-            $others .= $photo.',';
+            $others .= $photo . ',';
             $photo->store('photos/other');
         }
-
 
         ComplaintUploads::create([
             'complaint_id' => $complaints->id,
@@ -82,7 +79,7 @@ class HomeController extends Controller
             'affidavit' => $affidavit,
             'others' => $others,
             'year' => date('Y'),
-            'month' => date('m')
+            'month' => date('m'),
         ]);
 
         $awaiting_r = AwaitingReview::create([
@@ -100,13 +97,16 @@ class HomeController extends Controller
             'staff_assigned' => 'nil',
             'user_id' => 'nil',
             'year' => date('Y'),
-            'month' => date('m')
+            'month' => date('m'),
         ]);
-    Session::flash('flash_message', 'Complaint was submitted successfully. Your complaint tracking code is '.$code.'. Please copy and Keep your complaint tracking code safe.');
+        Session::flash(
+            'flash_message',
+            'Complaint was submitted successfully. Your complaint tracking code is ' .
+                $code .
+                '. Please copy and Keep your complaint tracking code safe.'
+        );
         return redirect(route('home'));
-
-
-      } 
+    }
 
     public function storeTestimonial(Request $request)
     {
@@ -115,16 +115,17 @@ class HomeController extends Controller
             'state' => $request->state,
             'phone_number' => $request->phone_number,
             'response' => $request->response,
-
         ]);
 
-        if($testimonial){
-        Session::flash('flash_message', 'Testimonial submitted successfully!!');
-        return redirect(route('home'));
-        }else{
-        Session::flash('error_message', 'An error occured!!');
-        return redirect(route('home'));
+        if ($testimonial) {
+            Session::flash(
+                'flash_message',
+                'Testimonial submitted successfully!!'
+            );
+            return redirect(route('home'));
+        } else {
+            Session::flash('error_message', 'An error occured!!');
+            return redirect(route('home'));
         }
-
-      }
+    }
 }
