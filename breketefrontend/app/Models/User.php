@@ -8,14 +8,14 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
-{
+{                                                        
     use HasFactory, Notifiable;
-
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
+    protected $table = 'basic_users';
     protected $fillable = [
         'name',
         'email',
@@ -33,7 +33,7 @@ class User extends Authenticatable
     ];
 
     /**
-     * The attributes that should be cast to native types.
+     * The attributes that should be cast to native                          types.
      *
      * @var array
      */

@@ -51,10 +51,10 @@
                   <a class="nav-link dropdown-toggle gr-toggle-arrow"  href="#features" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Home</a>
                   <ul class="gr-menu-dropdown dropdown-menu" aria-labelledby="navbarDropdown">
-                    
+
                   </ul>
                 </li>
-              
+
               </ul>
             </div>
             <button class="d-block d-lg-none offcanvas-btn-close focus-reset" type="button" data-toggle="collapse" data-target="#mobile-menu" aria-controls="mobile-menu" aria-expanded="true" aria-label="Toggle navigation">
@@ -179,7 +179,7 @@
                   </h3>
                   <p class="mb-0 font-size-4 text-white">Create your account to continue.</p>
                 </div>
-                
+
               </div>
             </div>
             <div class="col-lg-7 col-md-6">
@@ -319,16 +319,16 @@
         <div class="row align-items-center justify-content-center justify-content-lg-between">
           <!-- Single Brand -->
           <div class="single-brand-logo mx-5 my-6" data-aos="fade-in" data-aos-duration="800" data-aos-once="true">
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/z2puOU0m3FQ" frameborder="0" allow="accelerometer; 
-            autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/z2puOU0m3FQ" frameborder="0" allow="accelerometer;
+            autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen></iframe>
           </div>
           <!-- Single Brand -->
           <div class="single-brand-logo mx-5 my-6" data-aos="fade-in" data-aos-duration="800" data-aos-delay="300" data-aos-once="true">
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/ShPdsXP5wHQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; 
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/ShPdsXP5wHQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media;
             gyroscope; picture-in-picture" allowfullscreen></iframe>
           </div>
-        
+
         </div>
         <!-- End Brand Logos -->
       </div>
@@ -412,7 +412,7 @@
               </div>
             </a>
           </div>
-         
+
         </div>
       </div>
     </div>
@@ -422,12 +422,12 @@
     <!-- content-1 section -->
     <section class="pt-7 pt-lg-16 pb-2 pb-lg-32">
       <div class="container">
-        
+
         <h3>Lodge Complaint</h3>
-        
+
           <div class="col-xl-12 col-lg-12 col-md-12 col-sm-11" data-aos="fade-right" data-aos-duration="800" data-aos-once="true">
             <!-- content-1 left-content start -->
-   
+
 
               <form role="form" action="{{ route('home.store') }}" enctype="multipart/form-data" method="POST">
                  @csrf
@@ -465,15 +465,15 @@
                 </div>
 
                 <div class="row">
-                 
+
                   <div class="col-md-12">
                       <div class="form-group">
                         <label>Complaint Description</label>
                         <textarea class="form-control" name="complaint" rows="3" placeholder="Describe the Case ..."></textarea>
                       </div>
-                    </div>                  
-                    
-                    </div> 
+                    </div>
+
+                    </div>
                 <div class="row">
 
                 <div class="col-md-3">
@@ -486,7 +486,7 @@
                       </select>
                     </div>
                   </div>
-                 
+
                     <div class="col-md-3">
                       <div class="form-group">
                         <label>Marital Status</label><br>
@@ -510,7 +510,7 @@
               </div>
               <br>
                 <div class="row">
-                  
+
                   <div class="col-md-3">
                     <div class="form-group">
                       <label>State of Residence</label><br>
@@ -518,7 +518,7 @@
                         <option value="Select State">Select State...</option>
                         @foreach ($states as $state)
                             <option value="{{ $state->name }}">{{ $state->name }}</option>
-                        @endforeach  
+                        @endforeach
                       </select>
                     </div>
                   </div>
@@ -529,11 +529,11 @@
                         <option value="">Select Country</option>
                       @foreach ($countries as $country)
                             <option value="{{ $country->name }}">{{ $country->name }}</option>
-                        @endforeach                      
+                        @endforeach
                       </select>
                     </div>
                   </div>
-                
+
                   <div class="col-md-3">
                     <div class="form-group">
                       <label>Occupation</label><br>
@@ -551,7 +551,7 @@
                 <br><br>
 
                 <div class="row">
-                  
+
                   <div class="col-md-3">
                     <div class="form-group">
                       <label>Upload Affidavit</label><br>
@@ -570,7 +570,7 @@
                       <input  multiple="multiple" type="file" name="others[]">
                     </div>
                   </div>
-               
+
                 </div>
                 <br><br>
                 <div class="row">
@@ -579,12 +579,12 @@
               </div>
               </form>
             </div>
-              
+
             </div>
             <!-- content-1 left-content end -->
-    
-         
-      
+
+
+
       </div>
     </section>
     <!-- ContentOne Area -->
@@ -617,9 +617,9 @@
               </div>
               <a href="#" class="font-size-3 d-block mb-0 text-gray">Name of Person</a>
               <h2 class="mt-n4"><a class="font-size-7 text-black-2 font-weight-bold mb-4" href="#">Case</a></h2>
-              
+
               <p class="mb-7 font-size-4 text-gray">We are looking for Enrollment Advisors who are looking to take 30-35 appointments per week. All leads are pre-scheduled.</p>
-             
+
             </div>
             <!-- End Feature One -->
           </div>
@@ -631,9 +631,9 @@
               </div>
               <a href="#" class="font-size-3 d-block mb-0 text-gray">Name of Person</a>
               <h2 class="mt-n4"><a class="font-size-7 text-black-2 font-weight-bold mb-4" href="#">Case</a></h2>
-              
+
               <p class="mb-7 font-size-4 text-gray">We are looking for Enrollment Advisors who are looking to take 30-35 appointments per week. All leads are pre-scheduled.</p>
-             
+
             </div>
             <!-- End Feature One -->
           </div>
@@ -645,14 +645,14 @@
               </div>
               <a href="#" class="font-size-3 d-block mb-0 text-gray">Name of Person</a>
               <h2 class="mt-n4"><a class="font-size-7 text-black-2 font-weight-bold mb-4" href="#">Case</a></h2>
-              
+
               <p class="mb-7 font-size-4 text-gray">We are looking for Enrollment Advisors who are looking to take 30-35 appointments per week. All leads are pre-scheduled.</p>
-             
+
             </div>
             <!-- End Feature One -->
           </div>
-          
-          
+
+
           </div>
         </div>
       </div>
@@ -669,7 +669,7 @@
               <img src="image/ah.png" alt="" class="w-100 rounded-4" />
               <!-- content img end -->
               <!-- abs-content start -->
-              
+
               <!-- abs-content end -->
             </div>
           </div>
@@ -684,11 +684,11 @@
                 Brekete Family Complaint System
               </h2>
               <p class="text-default-color font-size-5 mb-12">
-                This Platform is designed by House of Amaya Tech Hub to support the Brekete Family Program tagged Embelembe Olololo at 
-                the Human Rights Radio Abuja. We believe this solution would help the family in collecting, 
+                This Platform is designed by House of Amaya Tech Hub to support the Brekete Family Program tagged Embelembe Olololo at
+                the Human Rights Radio Abuja. We believe this solution would help the family in collecting,
                 gathering and processing Complaints from Complainants.
               </p>
-           
+
               <!-- content-2 section title end -->
               <a class="btn btn-green btn-h-60 text-white w-180 rounded-5 text-uppercase" href="https://houseofamaya.com.ng">About House of Amaya</a>
             </div>
@@ -724,7 +724,7 @@
           </div>
         </div>
       </div>
-  
+
     </footer>
     <!-- footer area function end -->
   </div>
@@ -745,6 +745,13 @@
              <script>
                  $(window).bind("load", function() {
                  swal("Congratulations!", "{{ Session::get('flash_message') }}", "success");
+                });
+            </script>
+     @endif
+      @if (Session::has('error_message'))
+             <script>
+                 $(window).bind("load", function() {
+                 swal("Error!", "{{ Session::get('error_message') }}", "error");
                 });
             </script>
      @endif

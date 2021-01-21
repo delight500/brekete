@@ -22,7 +22,7 @@ class HomeController extends Controller
      *
      * @return void
      */
-   
+
     /**
      * Show the application dashboard.
      *
@@ -68,10 +68,10 @@ class HomeController extends Controller
         $affidavit->store('photos/affidavit');
         $passport = $request->passport;
         $passport->store('photos/passport');
-        $others = array();
+        $others = '';
 
         foreach ($request->others as $photo) {
-            array_push($others, $photo);
+            $others .= $photo.',';
             $photo->store('photos/other');
         }
 
@@ -85,7 +85,7 @@ class HomeController extends Controller
             'month' => date('m')
         ]);
 
-        AwaitingReview::create([
+        $awaiting_r = AwaitingReview::create([
             'name' => $request->name,
             'email' => $request->email,
             'gender' => $request->gender,
@@ -102,16 +102,16 @@ class HomeController extends Controller
             'year' => date('Y'),
             'month' => date('m')
         ]);
-
-        
-
-       Session::flash('flash_message', 'Complaint was submitted successfully!!');
+   Session::flash('flash_message', 'Complaint was submitted successfully \r\n
+        your complaint tracking code is '.$code.'');
         return redirect(route('home'));
+        
+       
       }
 
     public function storeTestimonial(Request $request)
     {
-        Testimonial::create([
+        $testimonial = Testimonial::create([
             'name' => $request->name,
             'state' => $request->state,
             'phone_number' => $request->phone_number,
@@ -119,7 +119,13 @@ class HomeController extends Controller
 
         ]);
 
-       Session::flash('flash_message', 'Testimonial submitted successfully!!');
+        if($testimonial){
+        Session::flash('flash_message', 'Testimonial submitted successfully!!');
         return redirect(route('home'));
+        }else{
+        Session::flash('error_message', 'An error occured!!');
+        return redirect(route('home'));
+        }
+
       }
 }

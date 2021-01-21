@@ -18,9 +18,9 @@ class CreateComplaintUploadsTable extends Migration
             $table->foreign('complaint_id')->references('id')->on('complaints')->onDelete('cascade');
             $table->string('affidavit');
             $table->string('passport');
-            $table->json('others');
+            $table->string('others');
             $table->string('month');
-            $table->string('year');                      
+            $table->string('year');
             $table->timestamps();
         });
     }
