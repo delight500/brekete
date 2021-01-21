@@ -41,13 +41,7 @@ class HomeController extends Controller
         ]);
     }
 
-    public function home()
-    {
-    
-        return view('home')->with([
 
-        ]);
-    }
 
     public function store(Request $request)
     {
@@ -58,22 +52,38 @@ class HomeController extends Controller
             'gender' => $request->gender,
             'state' => $request->state,
             'country' => $request->country,
-            'address' => $request->useraddress,
+            'address' => $request->address,
             'phone_number' => $request->phone_number,
             'complaint_type' => $request->complaint_type,
             'complaint' => $request->complaint,
             'tracking_code' => $code,
             'complaint_status' => 'awaiting',
-
+            'staff_assigned' => 'nil',
+            'user_id' => 'nil',
+            'year' => date('Y'),
+            'month' => date('m')
         ]);
 
-        foreach ($request->photos as $photo) {
-            $filename = $photo->store('photos');
-            ComplaintUploads::create([
-                'complaint_id' => $complaints->id,
-                'filename' => $filename
-            ]);
+        $affidavit = $request->affidavit;
+        $affidavit->store('photos/affidavit');
+        $passport = $request->passport;
+        $passport->store('photos/passport');
+        $others = array();
+
+        foreach ($request->others as $photo) {
+            array_push($others, $photo);
+            $photo->store('photos/other');
         }
+
+
+        ComplaintUploads::create([
+            'complaint_id' => $complaints->id,
+            'passport' => $passport,
+            'affidavit' => $affidavit,
+            'others' => $others,
+            'year' => date('Y'),
+            'month' => date('m')
+        ]);
 
         AwaitingReview::create([
             'name' => $request->name,
@@ -81,13 +91,16 @@ class HomeController extends Controller
             'gender' => $request->gender,
             'state' => $request->state,
             'country' => $request->country,
-            'address' => $request->useraddress,
+            'address' => $request->address,
             'phone_number' => $request->phone_number,
             'complaint_type' => $request->complaint_type,
             'complaint' => $request->complaint,
             'tracking_code' => $code,
             'complaint_status' => 'awaiting',
-
+            'staff_assigned' => 'nil',
+            'user_id' => 'nil',
+            'year' => date('Y'),
+            'month' => date('m')
         ]);
 
         

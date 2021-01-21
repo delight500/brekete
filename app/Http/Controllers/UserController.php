@@ -153,7 +153,7 @@ class UserController extends Controller
     {
 //         if (Gate::denies('manage-user')) {
 //             return redirect(route('users.view'));
-//         }
+//         } 
 
         $user = User::findOrFail($id);
         $auth = Auth::user();

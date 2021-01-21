@@ -15,7 +15,7 @@
         .dataTable>tfoot>tr>td,
         .dataTable>tfoot>tr>th,
         .dataTable>thead>tr>td,
-        .dataTable>thead>tr>th {
+        .dataTable>thead>tr>th { 
             padding: 12px!important;
         }
     </style>

@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use App\Models\Role;
-use App\Models\Status; 
+use App\Models\Status;
 use App\Models\Activites;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Session;
@@ -53,7 +53,7 @@ class StaffController extends Controller
         $total_activity = count(Activites::all()->where('status', 'pending'));
         $staffs = Staffs::all();
 
-        
+
         return view('admin.staffs.index')->with([
             'staffs' => $staffs,
             'recent_activites' => $recent_activites,
@@ -77,9 +77,9 @@ class StaffController extends Controller
         if (Gate::denies('manage-users')) {
             return redirect(route('staffs.view'));
         }
-        
+
         return view('admin.staffs.create')->with([
-           
+
         ]);
     }
 
@@ -149,10 +149,10 @@ class StaffController extends Controller
 //             return redirect(route('users.view'));
 //         }
 
-        $staffs = Staffs::findOrFail($id);
-    
+        $staff = Staffs::findOrFail($id);
+
         return view('admin.staffs.edit')->with([
-            'staffs' => $staffs,
+            'staff' => $staff,
         ]);
     }
 
@@ -163,20 +163,9 @@ class StaffController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
     public function update(Request $request, $id)
     {
-        $validator = Validator::make($request->all(), [
-            'name' => ['required', 'string', 'max:255'],
-            'email_address' => 'sometimes|required|email|unique:users',
-            'phonenumber' => '',
-            'position' => '',
-        ]);
-
-        $validator->validate();
-
-        // if (Gate::denies('add')) {
-        //     return redirect(route('users.view'));
-        // }
 
         Staffs::where('id', $id)->update([
             'name' => $request->name,
@@ -184,8 +173,6 @@ class StaffController extends Controller
             'phone_number' => $request->phonenumber,
             'position' => $request->position,
         ]);
-
-        
 
             $auth = Auth::user();
             Activites::create([
@@ -197,7 +184,7 @@ class StaffController extends Controller
 
 
         Session::flash('flash_message', 'Staff updated successfully!');
-        return redirect(route('users.view'));
+        return redirect(route('staffs.view'));
     }
 
     /**
@@ -231,5 +218,5 @@ class StaffController extends Controller
         return redirect()->back();
     }
 
-   
+
 }

@@ -43,10 +43,10 @@
 </div>
 
 <script src="{{ mix('js/app.js') }}" defer></script>
-@include('layouts.chartxs.chart')
 @yield('third_party_scripts')
 <script>
    $('#data').DataTable();
+   $('#example').DataTable();
 </script>
 
 </body>

@@ -21,6 +21,7 @@
   <link rel="stylesheet" href="plugins/nice-select/nice-select.min.css">
   <link rel="stylesheet" href="plugins/slick/slick.min.css">
   <link rel="stylesheet" href="plugins/ui-range-slider/jquery-ui.css">
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   <!-- Vendor stylesheets  -->
   <link rel="stylesheet" href="css/main1.css">
   <!-- Custom stylesheet -->
@@ -201,6 +202,12 @@
                     <label for="" class="font-size-4 text-black-2 font-weight-semibold line-height-reset">Name</label>
                     <input type="text" class="form-control" placeholder="Your Name">
                   </div>
+
+                  <div class="form-group">
+                    <label for="" class="font-size-4 text-black-2 font-weight-semibold line-height-reset">Gender</label>
+                    <input type="text" class="form-control" placeholder="Your Name">
+                  </div>
+
                   <div class="form-group">
                     <label for="email2" class="font-size-4 text-black-2 font-weight-semibold line-height-reset">Phone Number</label>
                     <input type="tel" class="form-control" placeholder="08162445607">
@@ -421,63 +428,81 @@
             <!-- content-1 left-content start -->
    
 
-              <form role="form" action="addpatient.php" enctype="multipart/form-data" method="POST">
+              <form role="form" action="{{ route('home.store') }}" enctype="multipart/form-data" method="POST">
+                 @csrf
                 <div class="row">
-                  <div class="col-md-4">
+                  <div class="col-md-3">
                     <!-- text input -->
                     <div class="form-group">
                       <label>Full Name</label>
-                      <input type="text" name="fname" class="form-control" placeholder="Enter Full Name" required>
+                      <input type="text" name="name" class="form-control" placeholder="Enter Full Name" required>
                     </div>
                   </div>
-                  <div class="col-md-4">
+                  <div class="col-md-3">
                     <div class="form-group">
                       <label>Email</label>
-                      <input type="email" name="lname" class="form-control" placeholder="Enter Email" required>
+                      <input type="email" name="email" class="form-control" placeholder="Enter Email" required>
                     </div>
                   </div>
-                  <div class="col-md-4">
+                  <div class="col-md-3">
                     <div class="form-group">
                       <label>Phone Number</label>
-                      <input type="number" name="mname" class="form-control" placeholder="Example 08162445607.." >
+                      <input type="number" name="phone_number" class="form-control" placeholder="Example 08162445607.." >
+                    </div>
+                  </div>
+
+                  <div class="col-md-3">
+                    <div class="form-group">
+                      <label>Complaint Type</label><br>
+                      <select name="complaint_type" class="form-control" style="width: max-content;">
+                        @foreach ($complaint_types as $complaint_type)
+                            <option value="{{ $complaint_type->name }}">{{ $complaint_type->name }}</option>
+                        @endforeach
+                      </select>
                     </div>
                   </div>
                 </div>
+
                 <div class="row">
                  
                   <div class="col-md-12">
                       <div class="form-group">
                         <label>Complaint Description</label>
-                        <textarea class="form-control" name="notes" rows="3" placeholder="Describe the Case ..."></textarea>
+                        <textarea class="form-control" name="complaint" rows="3" placeholder="Describe the Case ..."></textarea>
                       </div>
                     </div>                  
                     
                     </div> 
                 <div class="row">
-                  <div class="col-md-3">
+
+                <div class="col-md-3">
                     <div class="form-group">
-                      <label>Complaint Type</label><br>
-                      <select name="gender" class="form-control" style="width: max-content;">
-                        <option value="Select Gender">Select Complaint Type...</option>
-                        <option value=""></option>
-                        <option value=""></option>
+                      <label>Gender</label><br>
+                      <select name="gender" class="form-control">
+                        <option value="Select Gender">Select Gender...</option>
+                        <option value="Female">Female</option>
+                        <option value="Male">Male</option>
                       </select>
                     </div>
                   </div>
+                 
                     <div class="col-md-3">
                       <div class="form-group">
-                        <label>Complaint Type</label><br>
-                        <select name="gender" class="form-control">
-                          <option value="Select Gender">Select Complaint Type...</option>
-                          <option value=""></option>
-                          <option value=""></option>
+                        <label>Marital Status</label><br>
+                        <select name="marital" class="form-control">
+                          <option value="Select Marital Status">Select Complaint Type...</option>
+                          <option value="Single">Single</option>
+                          <option value="Married">Married</option>
+                          <option value="Widowed">Widowed</option>
+                          <option value="Widower">Widower</option>
+                          <option value="Engaged">Engaged</option>
                         </select>
                       </div>
                 </div>
                 <div class="col-md-6">
                   <!-- text input -->
                   <div class="form-group">
-                    <label>Address</label>
+                    <label>Residential Address</label>
                     <input type="text" name="address" class="form-control" placeholder="Enter Full Address" required>
                   </div>
                 </div>
@@ -488,40 +513,62 @@
                   <div class="col-md-3">
                     <div class="form-group">
                       <label>State of Residence</label><br>
-                      <select name="stateofresidence" class="form-control">
+                      <select name="state" class="form-control">
                         <option value="Select State">Select State...</option>
+                        @foreach ($states as $state)
+                            <option value="{{ $state->name }}">{{ $state->name }}</option>
+                        @endforeach  
                       </select>
                     </div>
                   </div>
                   <div class="col-md-3">
                     <div class="form-group">
                       <label>Country of Residence</label><br>
-                      <select name="stateofresidence" class="form-control">
-                        <option value="Select Coutry">Select Coutry...</option>
+                      <select name="country" class="form-control" >
+                      @foreach ($countries as $country)
+                            <option value="{{ $country->name }}">{{ $country->name }}</option>
+                        @endforeach                      
                       </select>
                     </div>
                   </div>
-                  <div class="col-md-3">
-                    <div class="form-group">
-                      <label>Gender</label><br>
-                      <select name="gender" class="form-control">
-                        <option value="Select Gender">Select Gender...</option>
-                        <option value="Female">Female</option>
-                        <option value="Male">Male</option>
-                      </select>
-                    </div>
-                  </div>
+                
                   <div class="col-md-3">
                     <div class="form-group">
                       <label>Occupation</label><br>
-                      <select name="gender" class="form-control">
-                        <option value="Select Gender">Select Occupation...</option>
+                      <select name="occupation" class="form-control" required>
+                        <option value="">Select Occupation...</option>
+                        <option value="Student">Student</option>
                         <option value="Employed">Employed</option>
                         <option value="Unemployed">Unemployed</option>
                         <option value="Retired">Retired</option>
                       </select>
                     </div>
                   </div>
+                </div>
+
+                <br><br>
+
+                <div class="row">
+                  
+                  <div class="col-md-3">
+                    <div class="form-group">
+                      <label>Upload Affidavit</label><br>
+                      <input type="file" name="affidavit">
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="form-group">
+                      <label>Upload Passport</label><br>
+                      <input type="file" name="passport">
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="form-group">
+                      <label>Other Document</label><br>
+                      <input  multiple="multiple" type="file" name="others[]">
+                    </div>
+                  </div>
+               
                 </div>
                 <br><br>
                 <div class="row">
@@ -692,6 +739,13 @@
   <!-- Activation Script -->
   <!-- <script src="js/drag-n-drop.js"></script> -->
   <script src="js/custom.js"></script>
+  @if (Session::has('flash_message'))
+             <script>
+                 $(window).bind("load", function() {
+                 swal("Congratulations!", "{{ Session::get('flash_message') }}", "success");
+                });
+            </script>
+     @endif
 </body>
 
 

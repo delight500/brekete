@@ -19,7 +19,7 @@
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
     </div>
-    <!-- /.content-header --> 
+    <!-- /.content-header -->
 
     <!-- Main content -->
     <section class="content">
@@ -30,9 +30,9 @@
             <!-- small box -->
             <div class="small-box bg-danger">
               <div class="inner">
-                <h3>{{$complaints ?? '0'}}</h3>
+                <h3>{{$flagged ?? '0'}}</h3>
 
-                <p>Complaints</p>
+                <p>Flagged Complaints</p>
               </div>
                <a href="">
               <div class="icon">
@@ -206,7 +206,7 @@
         <div class="row">
           <div class="col-md-4">
             <!-- AREA CHART -->
-           
+
             <!-- /.card -->
 
             <!-- DONUT CHART -->
@@ -217,7 +217,7 @@
                 <div class="card-tools">
                   <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
                   </button>
-                  
+
                 </div>
               </div>
               <div class="card-body">
@@ -227,7 +227,7 @@
             </div>
             <!-- /.card -->
 
-          
+
 
           </div>
           <!-- /.col (LEFT) -->
@@ -241,7 +241,7 @@
                 <div class="card-tools">
                   <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
                   </button>
-                  
+
                 </div>
               </div>
               <div class="card-body">
@@ -249,9 +249,9 @@
               </div>
               <!-- /.card-body -->
             </div>
-            <!-- /.card -->     
+            <!-- /.card -->
 
-            
+
 
           </div>
           <div class="col-md-4">
@@ -264,7 +264,7 @@
                 <div class="card-tools">
                   <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
                   </button>
-                  
+
                 </div>
               </div>
               <div class="card-body">
@@ -272,9 +272,9 @@
               </div>
               <!-- /.card-body -->
             </div>
-            <!-- /.card -->     
+            <!-- /.card -->
 
-            
+
 
           </div>
           <!-- /.col (RIGHT) -->
@@ -304,5 +304,7 @@
 
 
     </div>
+    @include('layouts.chartxs.chart')
 
 @endsection
+

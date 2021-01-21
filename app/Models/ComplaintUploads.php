@@ -7,7 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class ComplaintUploads extends Model
 {
-     protected $fillable = ['complaint_id', 'filename'];
+     protected $fillable = ['complaint_id', 'affidavit','passport','others','month','year'];
+     protected $casts = [
+        'others' => 'array',
+     ];
 
     public function product()
     {
