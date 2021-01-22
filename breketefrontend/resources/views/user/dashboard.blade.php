@@ -35,7 +35,8 @@
                         <div class="small-box bg-info">
                             <div class="inner">
                                 <h3>
-                                    1                </h3>
+                                  {{$complaints}}
+                                </h3>
 
                                 <p>Total Complaints</p>
                             </div>
@@ -54,8 +55,8 @@
                         <div class="small-box bg-secondary">
                             <div class="inner">
                                 <h3>
-
-                                    0                </h3>
+                                {{$resolved}}
+                               </h3>
 
                                 <p>Resolved Cpmplaints</p>
                             </div>

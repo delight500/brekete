@@ -237,7 +237,7 @@ return [
         ],
         [
             'text'        => 'Dashboard',
-            'url'         => 'user/dashboard',
+            'url'         => 'users/dashboard',
             'icon'        => 'far fa-fw fa fa-tachometer-alt',
            
         ],
@@ -245,13 +245,13 @@ return [
         ['header' => 'PAGES'],
         [
             'text' => 'Submit a Complaint',
-            'url'  => 'user/complaint/submit',
+            'url'  => 'users/complaint/submit',
             'icon' => 'fas fa-fw fa-folder-open',
         ],
 
         [
             'text' => 'View all Complaints',
-            'url'  => 'user/complaint/view',
+            'url'  => 'users/complaint/view',
             'icon' => 'fas fa-fw fa-file',
         ],
      
@@ -259,12 +259,12 @@ return [
         ['header' => 'account_settings'],
         [
             'text' => 'profile',
-            'url'  => 'user/account/settings',
+            'url'  => 'users/account/settings',
             'icon' => 'fas fa-fw fa-user',
         ],
         [
             'text' => 'change_password',
-            'url'  => 'user/account/edit',
+            'url'  => 'users/account/edit',
             'icon' => 'fas fa-fw fa-lock',
         ],
 

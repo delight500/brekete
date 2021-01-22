@@ -16,16 +16,30 @@ class DashboardController extends Controller
     public function index()
     {
         $auth = Auth::user();
-        $complaints = count(Complaints::all());
-        $pending = count(DB::table('complaints')->where('complaint_status', 'pending')->get());
+        $complaints = count(DB::table('complaints')->where('user_id', $auth->id)->get());
+        $pending = count(DB::table('complaints')->where('user_id', $auth->id )->where('complaint_status', 'pending')->get());
         $testimonial = count(Testimonial::all());
         $awaiting = count(AwaitingReview::all());
+        $resolved = count(DB::table('resolved_complaints')->where('user_id', $auth->id )->get());
 
         return view('user.dashboard')->with([
         'awaiting' => $awaiting,
         'pending' =>  $pending,
         'complaints' => $complaints,
+        'resolved' => $resolved,
+        
         ]);
 
+    }
+
+    public function complaint_submit_view()
+    {
+      return view('user.add_complaints');
+    }
+
+    public function complaint_view()
+    {
+        return view('user.complaints')->with([      
+        ]);
     }
 }

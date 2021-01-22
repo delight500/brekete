@@ -19,10 +19,15 @@ Route::post('/home', [App\Http\Controllers\HomeController::class, 'store'])->nam
 Route::post('/home/testimonial', [App\Http\Controllers\HomeController::class, 'storeTestimonial'])->name('testimonial.store');
 
 Route::group(['prefix' => 'users', 'middleware' => ['auth'] ], function () {
-// Dashboard controllers
 
+// Dashboard controllers
 Route::get('/', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard.index');
 Route::get('/dashboard', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard.index');
+
+// Submit complaint controllers
+Route::get('/complaint/submit', [App\Http\Controllers\DashboardController::class, 'complaint_submit_view'])->name('complaint.submit');
+
+Route::get('/complaint/view', [App\Http\Controllers\DashboardController::class, 'complaint_view'])->name('complaint.view');
 });
 
 Route::get('/dashboard', function () {
