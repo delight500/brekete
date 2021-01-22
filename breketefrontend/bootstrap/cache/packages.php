@@ -24,6 +24,13 @@
       0 => 'Fruitcake\\Cors\\CorsServiceProvider',
     ),
   ),
+  'jeroennoten/laravel-adminlte' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'JeroenNoten\\LaravelAdminLte\\AdminLteServiceProvider',
+    ),
+  ),
   'laravel/breeze' => 
   array (
     'providers' => 

@@ -12,11 +12,23 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Route::redirect('/user', '/users');
 Route::redirect('/', '/home');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::post('/home', [App\Http\Controllers\HomeController::class, 'store'])->name('home.store');
 Route::post('/home/testimonial', [App\Http\Controllers\HomeController::class, 'storeTestimonial'])->name('testimonial.store');
+
+Route::group(['prefix' => 'users', 'middleware' => ['auth'] ], function () {
+
+// Dashboard controllers
+Route::get('/', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard.index');
+Route::get('/dashboard', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard.index');
+
+// Submit complaint controllers
+Route::get('/complaint/submit', [App\Http\Controllers\DashboardController::class, 'complaint_submit_view'])->name('complaint.submit');
+
+Route::get('/complaint/view', [App\Http\Controllers\DashboardController::class, 'complaint_view'])->name('complaint.view');
+});
 
 Route::get('/dashboard', function () {
     return view('dashboard');

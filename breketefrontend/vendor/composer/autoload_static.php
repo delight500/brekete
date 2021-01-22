@@ -131,6 +131,10 @@ class ComposerStaticInite5f467ebda5dd866cc8830cf9741c12d
             'Laravel\\Sail\\' => 13,
             'Laravel\\Breeze\\' => 15,
         ),
+        'J' => 
+        array (
+            'JeroenNoten\\LaravelAdminLte\\' => 28,
+        ),
         'I' => 
         array (
             'Illuminate\\Support\\' => 19,
@@ -404,6 +408,10 @@ class ComposerStaticInite5f467ebda5dd866cc8830cf9741c12d
         'Laravel\\Breeze\\' => 
         array (
             0 => __DIR__ . '/..' . '/laravel/breeze/src',
+        ),
+        'JeroenNoten\\LaravelAdminLte\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/jeroennoten/laravel-adminlte/src',
         ),
         'Illuminate\\Support\\' => 
         array (
@@ -2534,6 +2542,36 @@ class ComposerStaticInite5f467ebda5dd866cc8830cf9741c12d
         'Illuminate\\View\\ViewFinderInterface' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/View/ViewFinderInterface.php',
         'Illuminate\\View\\ViewName' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/View/ViewName.php',
         'Illuminate\\View\\ViewServiceProvider' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/View/ViewServiceProvider.php',
+        'JeroenNoten\\LaravelAdminLte\\AdminLte' => __DIR__ . '/..' . '/jeroennoten/laravel-adminlte/src/AdminLte.php',
+        'JeroenNoten\\LaravelAdminLte\\AdminLteServiceProvider' => __DIR__ . '/..' . '/jeroennoten/laravel-adminlte/src/AdminLteServiceProvider.php',
+        'JeroenNoten\\LaravelAdminLte\\Console\\AdminLteInstallCommand' => __DIR__ . '/..' . '/jeroennoten/laravel-adminlte/src/Console/AdminLteInstallCommand.php',
+        'JeroenNoten\\LaravelAdminLte\\Console\\AdminLtePluginCommand' => __DIR__ . '/..' . '/jeroennoten/laravel-adminlte/src/Console/AdminLtePluginCommand.php',
+        'JeroenNoten\\LaravelAdminLte\\Console\\AdminLteStatusCommand' => __DIR__ . '/..' . '/jeroennoten/laravel-adminlte/src/Console/AdminLteStatusCommand.php',
+        'JeroenNoten\\LaravelAdminLte\\Console\\AdminLteUpdateCommand' => __DIR__ . '/..' . '/jeroennoten/laravel-adminlte/src/Console/AdminLteUpdateCommand.php',
+        'JeroenNoten\\LaravelAdminLte\\Console\\PackageResources\\AssetsResource' => __DIR__ . '/..' . '/jeroennoten/laravel-adminlte/src/Console/PackageResources/AssetsResource.php',
+        'JeroenNoten\\LaravelAdminLte\\Console\\PackageResources\\AuthViewsResource' => __DIR__ . '/..' . '/jeroennoten/laravel-adminlte/src/Console/PackageResources/AuthViewsResource.php',
+        'JeroenNoten\\LaravelAdminLte\\Console\\PackageResources\\BasicRoutesResource' => __DIR__ . '/..' . '/jeroennoten/laravel-adminlte/src/Console/PackageResources/BasicRoutesResource.php',
+        'JeroenNoten\\LaravelAdminLte\\Console\\PackageResources\\BasicViewsResource' => __DIR__ . '/..' . '/jeroennoten/laravel-adminlte/src/Console/PackageResources/BasicViewsResource.php',
+        'JeroenNoten\\LaravelAdminLte\\Console\\PackageResources\\ConfigResource' => __DIR__ . '/..' . '/jeroennoten/laravel-adminlte/src/Console/PackageResources/ConfigResource.php',
+        'JeroenNoten\\LaravelAdminLte\\Console\\PackageResources\\MainViewsResource' => __DIR__ . '/..' . '/jeroennoten/laravel-adminlte/src/Console/PackageResources/MainViewsResource.php',
+        'JeroenNoten\\LaravelAdminLte\\Console\\PackageResources\\PackageResource' => __DIR__ . '/..' . '/jeroennoten/laravel-adminlte/src/Console/PackageResources/PackageResource.php',
+        'JeroenNoten\\LaravelAdminLte\\Console\\PackageResources\\PluginsResource' => __DIR__ . '/..' . '/jeroennoten/laravel-adminlte/src/Console/PackageResources/PluginsResource.php',
+        'JeroenNoten\\LaravelAdminLte\\Console\\PackageResources\\TranslationsResource' => __DIR__ . '/..' . '/jeroennoten/laravel-adminlte/src/Console/PackageResources/TranslationsResource.php',
+        'JeroenNoten\\LaravelAdminLte\\Events\\BuildingMenu' => __DIR__ . '/..' . '/jeroennoten/laravel-adminlte/src/Events/BuildingMenu.php',
+        'JeroenNoten\\LaravelAdminLte\\Helpers\\CommandHelper' => __DIR__ . '/..' . '/jeroennoten/laravel-adminlte/src/Helpers/CommandHelper.php',
+        'JeroenNoten\\LaravelAdminLte\\Helpers\\LayoutHelper' => __DIR__ . '/..' . '/jeroennoten/laravel-adminlte/src/Helpers/LayoutHelper.php',
+        'JeroenNoten\\LaravelAdminLte\\Helpers\\MenuItemHelper' => __DIR__ . '/..' . '/jeroennoten/laravel-adminlte/src/Helpers/MenuItemHelper.php',
+        'JeroenNoten\\LaravelAdminLte\\Http\\ViewComposers\\AdminLteComposer' => __DIR__ . '/..' . '/jeroennoten/laravel-adminlte/src/Http/ViewComposers/AdminLteComposer.php',
+        'JeroenNoten\\LaravelAdminLte\\Menu\\ActiveChecker' => __DIR__ . '/..' . '/jeroennoten/laravel-adminlte/src/Menu/ActiveChecker.php',
+        'JeroenNoten\\LaravelAdminLte\\Menu\\Builder' => __DIR__ . '/..' . '/jeroennoten/laravel-adminlte/src/Menu/Builder.php',
+        'JeroenNoten\\LaravelAdminLte\\Menu\\Filters\\ActiveFilter' => __DIR__ . '/..' . '/jeroennoten/laravel-adminlte/src/Menu/Filters/ActiveFilter.php',
+        'JeroenNoten\\LaravelAdminLte\\Menu\\Filters\\ClassesFilter' => __DIR__ . '/..' . '/jeroennoten/laravel-adminlte/src/Menu/Filters/ClassesFilter.php',
+        'JeroenNoten\\LaravelAdminLte\\Menu\\Filters\\DataFilter' => __DIR__ . '/..' . '/jeroennoten/laravel-adminlte/src/Menu/Filters/DataFilter.php',
+        'JeroenNoten\\LaravelAdminLte\\Menu\\Filters\\FilterInterface' => __DIR__ . '/..' . '/jeroennoten/laravel-adminlte/src/Menu/Filters/FilterInterface.php',
+        'JeroenNoten\\LaravelAdminLte\\Menu\\Filters\\GateFilter' => __DIR__ . '/..' . '/jeroennoten/laravel-adminlte/src/Menu/Filters/GateFilter.php',
+        'JeroenNoten\\LaravelAdminLte\\Menu\\Filters\\HrefFilter' => __DIR__ . '/..' . '/jeroennoten/laravel-adminlte/src/Menu/Filters/HrefFilter.php',
+        'JeroenNoten\\LaravelAdminLte\\Menu\\Filters\\LangFilter' => __DIR__ . '/..' . '/jeroennoten/laravel-adminlte/src/Menu/Filters/LangFilter.php',
+        'JeroenNoten\\LaravelAdminLte\\Menu\\Filters\\SearchFilter' => __DIR__ . '/..' . '/jeroennoten/laravel-adminlte/src/Menu/Filters/SearchFilter.php',
         'JsonException' => __DIR__ . '/..' . '/symfony/polyfill-php73/Resources/stubs/JsonException.php',
         'Laravel\\Breeze\\BreezeServiceProvider' => __DIR__ . '/..' . '/laravel/breeze/src/BreezeServiceProvider.php',
         'Laravel\\Breeze\\Console\\InstallCommand' => __DIR__ . '/..' . '/laravel/breeze/src/Console/InstallCommand.php',
