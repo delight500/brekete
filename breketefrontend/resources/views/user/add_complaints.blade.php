@@ -1,19 +1,82 @@
 @extends('adminlte::page')
 
-@section('title', 'Dashboard')
+@section('title', 'Add Complaints')
 
 @section('content_header')
-    <h1>Dashboard</h1>
+           <div class="container-fluid">
+        <!-- Content Header (Page header) -->
+        <div class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <h1 class="m-0 text-dark">Add Complaints</h1>
+                    </div><!-- /.col -->
+                    <div class="col-sm-6">
+                        <ol class="breadcrumb float-sm-right">
+                            <li class="breadcrumb-item"><a href="{{ url('/user') }}">Home</a></li>
+                            <li class="breadcrumb-item active">Add Complaints</li>
+                        </ol>
+                    </div><!-- /.col -->
+                </div><!-- /.row -->
+            </div><!-- /.container-fluid -->
+        </div>
+        <!-- /.content-header -->
 @stop
 
 @section('content')
-    <p>Welcome to this beautiful admin .</p>
-@stop
+        <div class="wrapper wrapper--w900">
+            <div class="card card-6">
+               
+                <div class="card-body">
+                    <form method="POST" action="{{ route('complaints.store') }}">
+                        @csrf
+                        <div class="form-row">
+                            <div class="name">Full name</div>
+                            <div class="value">
+                                <input class="input--style-6" type="text" name="name">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="name">Email address</div>
+                            <div class="value">
+                                <div class="input-group">
+                                    <input class="input--style-6" type="email" name="email" placeholder="example@email.com">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="name">Message</div>
+                            <div class="value">
+                                <div class="input-group">
+                                    <textarea class="textarea--style-6" name="message" placeholder="Message sent to the employer"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="name">Upload CV</div>
+                            <div class="value">
+                                <div class="input-group js-input-file">
+                                    <input class="input-file" type="file" name="file_cv" id="file">
+                                    <label class="label--file" for="file">Choose file</label>
+                                    <span class="input-file__info">No file chosen</span>
+                                </div>
+                                <div class="label--desc">Upload your CV/Resume or any other relevant file. Max file size 50 MB</div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="card-footer">
+                    <button class="btn btn--radius-2 btn--blue-2" type="submit">Send Application</button>
+                </div>
+            </div>
+        </div>
+   
+    @stop
 
 @section('css')
-    <link rel="stylesheet" href="/css/admin_custom.css">
+    <link href="/css/css.css" rel="stylesheet">
 @stop
 
 @section('js')
-    <script> console.log('Hi!'); </script>
+    <script src="/js/global.js"></script>
 @stop
