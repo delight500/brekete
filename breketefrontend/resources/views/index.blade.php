@@ -62,10 +62,10 @@
             </button>
           </div>
           <div class="header-btns header-btn-devider ml-auto pr-2 ml-lg-6 d-none d-xs-flex">
-            <a class="btn btn-transparent text-uppercase font-size-3 heading-default-color focus-reset" href="javacript:" data-toggle="modal" data-target="#login">
-              Log in
+            <a class="btn btn-transparent text-uppercase font-size-3 heading-default-color focus-reset"  href="{{ route('login') }}">
+              Sign in
             </a>
-            <a class="btn btn-primary text-uppercase font-size-3" href="javacript:" data-toggle="modal" data-target="#signup">
+            <a class="btn btn-primary text-uppercase font-size-3"  href="{{ route('register') }}">
               Sign up
             </a>
           </div>
@@ -716,8 +716,8 @@
             <div class="col-xl-5 col-lg-12" data-aos="fade-left" data-aos-duration="800" data-aos-once="true">
               <!-- cta-btns start -->
               <div class="btns d-flex justify-content-xl-end justify-content-center align-items-xl-center flex-wrap h-100  mx-n4">
-                <a class="btn btn-outline-gallery btn-xl mx-4 mt-6 text-uppercase" href="#" data-toggle="modal" data-target="#login">Log in</a>
-                <a class="btn btn-green btn-h-60 btn-xl mx-4 mt-6 text-uppercase" href="#" data-toggle="modal" data-target="#signup">Sign Up</a>
+                <a class="btn btn-outline-gallery btn-xl mx-4 mt-6 text-uppercase"  href="{{ route('login') }}">Sign in</a>
+                <a class="btn btn-green btn-h-60 btn-xl mx-4 mt-6 text-uppercase"  href="{{ route('register') }}">Sign Up</a>
               </div>
               <!-- cta-btns end -->
             </div>
