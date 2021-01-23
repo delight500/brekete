@@ -49,6 +49,7 @@
                                     <tr>
                                         <th>S/N</th>                                        
                                         <th>Complaint Type</th>
+                                        <th>Tracking Code</th>
                                         <th>Staff Assigned</th>
                                         <th>Date Lodged</th>
                                         <th>Status</th>
@@ -62,6 +63,7 @@
                                     <tr>
                                     <td>{{ $loop->iteration }}</td>                                    
                                     <td>{{ $complaint->complaint_type }}</td>
+                                    <td>{{ $complaint->tracking_code }}</td>
                                     <td>{{ $complaint->staff_assigned }}</td>
                                   <td>{{ $complaint->created_at }}</td>
                                   <td><span class="right badge badge-success">{{ $complaint->complaint_status }}</span></td>
@@ -113,12 +115,13 @@
                   <dd class="col-sm-8"><textarea class="form-control" readonly>{{ $complaint->complaint }} </textarea></dd>
                   <dt class="col-sm-4">Complaint Type</dt>
                   <dd class="col-sm-8">{{ $complaint->complaint_type }}</dd>
+                  <dt class="col-sm-4">Tracking Code</dt>
+                  <dd class="col-sm-8">{{ $complaint->tracking_code }}</dd>
                   <dt class="col-sm-4">Status</dt>
                   <dd class="col-sm-8">{{ $complaint->complaint_status }}</dd>
                   <dt class="col-sm-4">Date Lodged</dt>
                   <dd class="col-sm-8">{{ $complaint->created_at }}</dd>
                   <dt class="col-sm-4">Attachements</dt>
-                  
                   <dd class="col-sm-8"><button class="btn btn-secondary">view attachments</button></dd>
 
                 </dl>

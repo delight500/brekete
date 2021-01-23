@@ -254,6 +254,8 @@
         <img src="image/patterns/hero-pattern.png" alt="" class="gr-opacity-1">
       </div>
       <!-- ./Hero pattern -->
+      <!-- Button trigger modal -->
+
       <div class="container">
         <div class="row position-relative align-items-center">
           <div class="col-xxl-6 col-xl-7 col-lg-8 col-md-12 pt-lg-13 pb-lg-33 pb-xl-34 pb-md-33 pb-10" data-aos="fade-right" data-aos-duration="800" data-aos-once="true">
@@ -261,7 +263,7 @@
               Track Your Complaint here</h1>
             <div class="">
               <!-- .search-form -->
-              <form action="#" class="search-form shadow-6">
+              <form action="" class="search-form shadow-6">
                 <div class="filter-search-form-1 bg-white rounded-sm shadow-4">
                   <div class="filter-inputs">
                     <div class="form-group position-relative">
@@ -284,7 +286,9 @@
                   </div>
                   <!-- .Hero Button -->
                   <div class="button-block">
-                    <button class="btn btn-primary line-height-reset h-100 btn-submit w-100 text-uppercase">Track</button>
+                    <button class="btn btn-primary line-height-reset h-100 btn-submit w-100 text-uppercase" data-toggle="modal" 
+                    data-target="#exampleModalCenter">Track</button>
+                    
                   </div>
                   <!-- ./Hero Button -->
                 </div>
@@ -692,6 +696,34 @@
     <!-- ContentTwo Area -->
     <!-- footer area function start -->
     <!-- cta section -->
+
+   
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Complaints Update</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <h3>Complainant: </h3>
+        <h3>Phone Number: </h3>
+        <h3>Tracking Code: </h3>
+        <h3>Complaint: </h3>
+        <h3>Complaint Status: </h3>
+        <h3>Complaint Notes: </h3>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Ok</button>
+      </div>
+    </div>
+  </div>
+</div>
     <footer class="footer bg-ebony-clay dark-mode-texts">
       <div class="container">
         <!-- Cta section -->
