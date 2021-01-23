@@ -47,11 +47,9 @@
                             <table id='data'  class="table table-striped table-bordered second" style="width:100%"">
                                 <thead>
                                     <tr>
-                                        <th>S/N</th>
-                                        <th>Name</th>
-                                        <th>Phone</th>
-                                        <th>Staff Assigned</th>
+                                        <th>S/N</th>                                        
                                         <th>Complaint Type</th>
+                                        <th>Staff Assigned</th>
                                         <th>Date Lodged</th>
                                         <th>Status</th>
                                         <th>Action</th>
@@ -62,11 +60,9 @@
 
                                     @foreach ($complaint as $complaint)
                                     <tr>
-                                    <td>{{ $loop->iteration }}</td>
-                                    <td>{{ $complaint->name }}</td>
-                                    <td>{{ $complaint->phone_number }}</td>
-                                    <td>{{ $complaint->staff_assigned }}</td>
+                                    <td>{{ $loop->iteration }}</td>                                    
                                     <td>{{ $complaint->complaint_type }}</td>
+                                    <td>{{ $complaint->staff_assigned }}</td>
                                   <td>{{ $complaint->created_at }}</td>
                                   <td><span class="right badge badge-success">{{ $complaint->complaint_status }}</span></td>
                                     <td>
@@ -97,16 +93,20 @@
               <!-- /.card-header -->
               <div class="card-body">
                 <dl class="row">
-                  <dt class="col-sm-4">Name</dt>
+                  <!-- <dt class="col-sm-4">Name</dt>
                   <dd class="col-sm-8">{{ $complaint->name}}.</dd>
                   <dt class="col-sm-4">Phone Number</dt>
                   <dd class="col-sm-8">{{ $complaint->phone_number }}</dd>
                   <dt class="col-sm-4">Email</dt>
                   <dd class="col-sm-8">{{ $complaint->email }}</dd>
                   <dt class="col-sm-4">Gender</dt>
-                  <dd class="col-sm-8">{{ $complaint->gender }}</dd>
+                  <dd class="col-sm-8">{{ $complaint->gender }}</dd> -->
+                  <dt class="col-sm-4">Staff Assigned</dt>
+                  <dd class="col-sm-8">{{ $complaint->staff_assigned }}</dd>
                   <dt class="col-sm-4">Address</dt>
                   <dd class="col-sm-8">{{ $complaint->address }}</dd>
+                  <dt class="col-sm-4">State</dt>
+                  <dd class="col-sm-8">{{ $complaint->state }}</dd>
                   <dt class="col-sm-4">Country</dt>
                   <dd class="col-sm-8">{{ $complaint->country }}</dd>
                   <dt class="col-sm-4">Complaint</dt>

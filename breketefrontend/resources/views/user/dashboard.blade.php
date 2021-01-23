@@ -44,7 +44,7 @@
                                 <div class="icon">
                                     <i class="ion ion-person"></i>
                                 </div>
-                                <a href="/admin/complaints" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                                <a href="/users/complaint/view" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                         </div>
                     </div>
                     <!-- ./col -->
@@ -63,7 +63,7 @@
                             <div class="icon">
                                 <i class="ion ion-person-add"></i>
                             </div>
-                            <a href="/admin/awaiting" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                            <a href="/users/complaint/view" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                         </div>
                     </div>
 
@@ -80,10 +80,9 @@
                                 <thead>
                                     <tr>
                                         <th>S/N</th>
-                                        <th>Name</th>
-                                        <th>Phone</th>
-                                        <th>Staff Assigned</th>
                                         <th>Complaint Type</th>
+                                        <th>Tracking Code</th>                                                                                
+                                        <th>Staff Assigned</th>
                                         <th>Date Lodged</th>
                                         <th>Status</th>
                                         <th>Action</th>
@@ -94,11 +93,10 @@
 
                                     @foreach ($complaint as $complaint)
                                     <tr>
-                                    <td>{{ $loop->iteration }}</td>
-                                    <td>{{ $complaint->name }}</td>
-                                    <td>{{ $complaint->phone_number }}</td>
-                                    <td>{{ $complaint->staff_assigned }}</td>
+                                    <td>{{ $loop->iteration }}</td>                                    
                                     <td>{{ $complaint->complaint_type }}</td>
+                                    <td>{{ $complaint->tracking_code }}</td>
+                                    <td>{{ $complaint->staff_assigned }}</td>
                                   <td>{{ $complaint->created_at }}</td>
                                   <td><span class="right badge badge-success">{{ $complaint->complaint_status }}</span></td>
                                     <td>
@@ -129,22 +127,26 @@
               <!-- /.card-header -->
               <div class="card-body">
                 <dl class="row">
+                <dt class="col-sm-4">Staff Assigned</dt>
+                  <dd class="col-sm-8">{{ $complaint->staff_assigned }}</dd>
                   <dt class="col-sm-4">Address</dt>
                   <dd class="col-sm-8">{{ $complaint->address }}</dd>
+                  <dt class="col-sm-4">State</dt>
+                  <dd class="col-sm-8">{{ $complaint->state }}</dd>
                   <dt class="col-sm-4">Country</dt>
                   <dd class="col-sm-8">{{ $complaint->country }}</dd>
+                  <dt class="col-sm-4">Complaint</dt>
+                  <dd class="col-sm-8"><textarea class="form-control" readonly>{{ $complaint->complaint }} </textarea></dd>
                   <dt class="col-sm-4">Complaint Type</dt>
                   <dd class="col-sm-8">{{ $complaint->complaint_type }}</dd>
+                  <dt class="col-sm-4">Tracking Code</dt>
+                  <dd class="col-sm-8">{{ $complaint->tracking_code }}</dd>
                   <dt class="col-sm-4">Status</dt>
                   <dd class="col-sm-8">{{ $complaint->complaint_status }}</dd>
-                   <dt class="col-sm-4">Staff:</dt>
-                  <dd class="col-sm-8"><textarea class="form-control" readonly>{{ $complaint->staff_assigned }} </textarea>
-                </dd>
-                 <dt class="col-sm-4">Address</dt>
-                  <dd class="col-sm-8">{{ $complaint->address }}</dd>
                   <dt class="col-sm-4">Date Lodged</dt>
                   <dd class="col-sm-8">{{ $complaint->created_at }}</dd>
                   <dt class="col-sm-4">Attachements</dt>
+                  <dd class="col-sm-8"><button class="btn btn-secondary">view attachments</button></dd>
                      <figure>
                         {{-- <img src="<?php echo "admin/".$row['image']; ?>" class="img-fluid" alt="" data-lightbox="portfolio">
                        --}}

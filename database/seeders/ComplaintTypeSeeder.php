@@ -23,9 +23,7 @@ class ComplaintTypeSeeder extends Seeder
             [
                 "name" => "Violation of human rights(women abuse)", 
             ],
-            [
-                "name" => "Others", 
-            ],
+           
         ]);
     }
 }
