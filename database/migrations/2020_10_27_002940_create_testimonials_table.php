@@ -17,7 +17,7 @@ class CreateTestimonialsTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('phone_number');
-            $table->string('state');
+            $table->string('address');
             $table->string('response');
             $table->timestamps();
         });

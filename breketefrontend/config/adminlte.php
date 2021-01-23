@@ -254,6 +254,12 @@ return [
             'url'  => 'users/complaint/view',
             'icon' => 'fas fa-fw fa-file',
         ],
+
+        [
+            'text' => 'Submit Testimonial',
+            'url'  => 'users/testimonial',
+            'icon' => 'fas fa-fw fa-folder-open',
+        ],
      
      
         ['header' => 'account_settings'],

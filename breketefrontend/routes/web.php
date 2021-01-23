@@ -16,9 +16,9 @@ Route::redirect('/user', '/users');
 Route::redirect('/', '/home');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::post('/home', [App\Http\Controllers\HomeController::class, 'store'])->name('home.store');
-Route::post('/home/testimonial', [App\Http\Controllers\HomeController::class, 'storeTestimonial'])->name('testimonial.store');
+Route::post('/testimonial', [App\Http\Controllers\TestimonialsController::class, 'storeTestimonial'])->name('testimonial.store');
 
-Route::post('/home', [App\Http\Controllers\HomeController::class, 'store'])->name('home.store');
+// Route::post('/home', [App\Http\Controllers\HomeController::class, 'store'])->name('home.store');
 
 Route::group(['prefix' => 'users', 'middleware' => ['auth'] ], function () {
 
@@ -32,6 +32,12 @@ Route::get('/complaint/submit', [App\Http\Controllers\DashboardController::class
 Route::post('/complaint/submit', [App\Http\Controllers\HomeController::class, 'complaint_submit_store'])->name('complaints.store');
 
 Route::get('/complaint/view', [App\Http\Controllers\DashboardController::class, 'complaint_view'])->name('complaint.view');
+
+Route::get('/testimonial', [App\Http\Controllers\TestimonialsController::class, 'viewTestimonial'])->name('testimonial.view');
+
+Route::post('/testimonial', [App\Http\Controllers\TestimonialsController::class, 'saveTestimonial'])->name('testimonial.save');
+
+
 });
 
 Route::get('/dashboard', function () {
