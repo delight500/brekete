@@ -14,6 +14,7 @@ use Illuminate\Http\Request;
 use App\Models\Testimonial;
 use App\Models\ComplaintUploads;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Validator;
 
 class HomeController extends Controller
 {
@@ -113,11 +114,6 @@ class HomeController extends Controller
 
     public function complaint_submit_store(Request $request){
 
-        $request->validate([
-          'affidavit' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-          'passport' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-        ]);
-
         $code = rand(100000, 999999);
         $auth = Auth::user();
 
@@ -178,9 +174,8 @@ class HomeController extends Controller
             'month' => date('m'),
         ]);
 
-        Session::flash('flash_message','Success. Complaint Tracking Code:'.$code.'');
-        return redirect(route('dashboard.index'));
-    
+        Session::flash('flash_message','Success. Complaint Tracking Code:'.$code.'.');
+        return redirect(route('complaint.submit'));    
 
     }
 
