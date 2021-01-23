@@ -607,7 +607,85 @@ textarea {
   }
 }
 
+.input-file2 {
+  display: none;
+}
 
+.input-file2 + label {
+  font-size: 15px;
+  color: #fff;
+  color: white;
+  line-height: 40px;
+  background-color: #666666;
+  padding: 0 20px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  display: inline-block;
+  margin-right: 15px;
+  -webkit-transition: all 0.4s ease;
+  -o-transition: all 0.4s ease;
+  -moz-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+  cursor: pointer;
+}
+
+.input-file2:focus + label,
+.input-file2 + label:hover {
+  background: #1b1b1b;
+}
+
+.input-file__info2 {
+  font-size: 15px;
+  color: #666;
+}
+
+@media (max-width: 767px) {
+  .input-file__info2 {
+    display: block;
+    margin-top: 6px;
+  }
+}
+
+.input-file3 {
+  display: none;
+}
+
+.input-file3 + label {
+  font-size: 15px;
+  color: #fff;
+  color: white;
+  line-height: 40px;
+  background-color: #666666;
+  padding: 0 20px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  display: inline-block;
+  margin-right: 15px;
+  -webkit-transition: all 0.4s ease;
+  -o-transition: all 0.4s ease;
+  -moz-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+  cursor: pointer;
+}
+
+.input-file3:focus + label,
+.input-file3 + label:hover {
+  background: #1b1b1b;
+}
+
+.input-file__info3 {
+  font-size: 15px;
+  color: #666;
+}
+
+@media (max-width: 767px) {
+  .input-file__info3 {
+    display: block;
+    margin-top: 6px;
+  }
+}
 /* ==========================================================================
    #TITLE
    ========================================================================== */
@@ -690,3 +768,7 @@ textarea {
     padding: 50px 30px;
   }
 }
+
+
+     
+  

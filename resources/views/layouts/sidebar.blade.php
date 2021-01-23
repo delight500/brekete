@@ -1,6 +1,6 @@
 
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
-    <a href="{{ route('home') }}" class="brand-link">
+    <a href="{{ route('dashboard.index') }}" class="brand-link">
         <img src="https://cdn3.iconfinder.com/data/icons/business-avatar-1/512/7_avatar-256.png"
              alt="AdminLTE Logo"
              class="brand-image img-circle elevation-3">
