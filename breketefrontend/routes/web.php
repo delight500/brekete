@@ -29,6 +29,8 @@ Route::get('/dashboard', [App\Http\Controllers\DashboardController::class, 'inde
 // Submit complaint controllers
 Route::get('/complaint/submit', [App\Http\Controllers\DashboardController::class, 'complaint_submit_view'])->name('complaint.submit');
 
+Route::post('/complaint/submit', [App\Http\Controllers\HomeController::class, 'complaint_submit_store'])->name('complaints.store');
+
 Route::get('/complaint/view', [App\Http\Controllers\DashboardController::class, 'complaint_view'])->name('complaint.view');
 });
 

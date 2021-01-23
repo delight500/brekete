@@ -3,18 +3,18 @@
 @section('title', 'Dashboard')
 
 @section('content_header')
-       <div class="container-fluid">
+           <div class="container-fluid">
         <!-- Content Header (Page header) -->
         <div class="content-header">
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0 text-dark">Dashboard</h1>
+                        <h1 class="m-0 text-dark">Complaints</h1>
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="{{ url('/user') }}">Home</a></li>
-                            <li class="breadcrumb-item active">Dashboard</li>
+                            <li class="breadcrumb-item active">Complaints</li>
                         </ol>
                     </div><!-- /.col -->
                 </div><!-- /.row -->
@@ -24,50 +24,18 @@
 @stop
 
 @section('content')
+    <div class="container-fluid">
 
-        <!-- Main content -->
-        <section class="content">
-            <div class="container-fluid">
-                <!-- Small boxes (Stat box) -->
-                <div class="row">
-                    <div class="col-lg-6 col-12">
-                        <!-- small box -->
-                        <div class="small-box bg-info">
-                            <div class="inner">
-                                <h3>
-                                  {{$complaints}}
-                                </h3>
+    <section class="content">
+      <div class="container-fluid">
+        <br>
 
-                                <p>Total Complaints</p>
-                            </div>
-                            <a href="">
-                                <div class="icon">
-                                    <i class="ion ion-person"></i>
-                                </div>
-                                <a href="/admin/complaints" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-                        </div>
-                    </div>
-                    <!-- ./col -->
-
-                    <!-- ./col -->
-                    <div class="col-lg-6 col-12">
-                        <!-- small box -->
-                        <div class="small-box bg-secondary">
-                            <div class="inner">
-                                <h3>
-                                {{$resolved}}
-                               </h3>
-
-                                <p>Resolved Cpmplaints</p>
-                            </div>
-                            <div class="icon">
-                                <i class="ion ion-person-add"></i>
-                            </div>
-                            <a href="/admin/awaiting" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-                        </div>
-                    </div>
-
-
+            <div class="row">
+                {{-- Flash message --}}
+                <div id="alert">
+                @include('user.partials.flash')
+                </div>
+                {{-- Flash message end--}}
             <div class="col-xl-12">
                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                 <div class="card"  style="width:100%">
@@ -129,26 +97,29 @@
               <!-- /.card-header -->
               <div class="card-body">
                 <dl class="row">
+                  <dt class="col-sm-4">Name</dt>
+                  <dd class="col-sm-8">{{ $complaint->name}}.</dd>
+                  <dt class="col-sm-4">Phone Number</dt>
+                  <dd class="col-sm-8">{{ $complaint->phone_number }}</dd>
+                  <dt class="col-sm-4">Email</dt>
+                  <dd class="col-sm-8">{{ $complaint->email }}</dd>
+                  <dt class="col-sm-4">Gender</dt>
+                  <dd class="col-sm-8">{{ $complaint->gender }}</dd>
                   <dt class="col-sm-4">Address</dt>
                   <dd class="col-sm-8">{{ $complaint->address }}</dd>
                   <dt class="col-sm-4">Country</dt>
                   <dd class="col-sm-8">{{ $complaint->country }}</dd>
+                  <dt class="col-sm-4">Complaint</dt>
+                  <dd class="col-sm-8"><textarea class="form-control" readonly>{{ $complaint->complaint }} </textarea></dd>
                   <dt class="col-sm-4">Complaint Type</dt>
                   <dd class="col-sm-8">{{ $complaint->complaint_type }}</dd>
                   <dt class="col-sm-4">Status</dt>
                   <dd class="col-sm-8">{{ $complaint->complaint_status }}</dd>
-                   <dt class="col-sm-4">Staff:</dt>
-                  <dd class="col-sm-8"><textarea class="form-control" readonly>{{ $complaint->staff_assigned }} </textarea>
-                </dd>
-                 <dt class="col-sm-4">Address</dt>
-                  <dd class="col-sm-8">{{ $complaint->address }}</dd>
                   <dt class="col-sm-4">Date Lodged</dt>
                   <dd class="col-sm-8">{{ $complaint->created_at }}</dd>
                   <dt class="col-sm-4">Attachements</dt>
-                     <figure>
-                        {{-- <img src="<?php echo "admin/".$row['image']; ?>" class="img-fluid" alt="" data-lightbox="portfolio">
-                       --}}
-      			    </figure>
+                  
+                  <dd class="col-sm-8"><button class="btn btn-secondary">view attachments</button></dd>
 
                 </dl>
               </div>
@@ -185,18 +156,11 @@
                 <!-- end data table  -->
         <!-- ============================================================== -->
     </div>
+</div>
+            </div>
+</section>
 
-                        <!-- /.info-box -->
-                    </div>
-                    <!-- /.col --success
-                  </div>
-                  <!-- /.row -->
-                    <!-- Main row -->
-
-                    <!-- /.row (main row) -->
-                </div><!-- /.container-fluid -->
-        </section>
-    </div>
+</div>
 @stop
 
 @section('css')
