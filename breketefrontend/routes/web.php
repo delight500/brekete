@@ -18,6 +18,8 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::post('/home', [App\Http\Controllers\HomeController::class, 'store'])->name('home.store');
 Route::post('/home/testimonial', [App\Http\Controllers\HomeController::class, 'storeTestimonial'])->name('testimonial.store');
 
+Route::post('/home', [App\Http\Controllers\HomeController::class, 'store'])->name('home.store');
+
 Route::group(['prefix' => 'users', 'middleware' => ['auth'] ], function () {
 
 // Dashboard controllers
