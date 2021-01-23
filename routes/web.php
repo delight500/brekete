@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use Illuminate\Support\Facades\Auth;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,12 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 
 
-Route::redirect('/', '/home');
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::post('/home', [App\Http\Controllers\HomeController::class, 'store'])->name('home.store');
-Route::post('/home/testimonial', [App\Http\Controllers\HomeController::class, 'storeTestimonial'])->name('testimonial.store');
-
-Route::get('/index', [App\Http\Controllers\HomeController::class, 'home'])->name('dog');
+Route::redirect('/', '/admin');
 
  
 Auth::routes();

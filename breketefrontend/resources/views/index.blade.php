@@ -456,6 +456,7 @@
                     <div class="form-group">
                       <label>Complaint Type</label><br>
                       <select name="complaint_type" class="form-control" style="width: max-content;">
+                       <option value=""  style="display:none">Select Complaint Type</option>
                         @foreach ($complaint_types as $complaint_type)
                             <option value="{{ $complaint_type->name }}">{{ $complaint_type->name }}</option>
                         @endforeach
@@ -480,7 +481,7 @@
                     <div class="form-group">
                       <label>Gender</label><br>
                       <select name="gender" class="form-control">
-                        <option value="Select Gender">Select Gender...</option>
+                        <option value="Select Gender"   style="display:none">Select Gender...</option>
                         <option value="Female">Female</option>
                         <option value="Male">Male</option>
                       </select>
@@ -491,7 +492,7 @@
                       <div class="form-group">
                         <label>Marital Status</label><br>
                         <select name="marital" class="form-control">
-                          <option value="Select Marital Status">Select Complaint Type...</option>
+                          <option value=""  style="display:none">Select Marital Status...</option>
                           <option value="Single">Single</option>
                           <option value="Married">Married</option>
                           <option value="Widowed">Widowed</option>
@@ -515,7 +516,7 @@
                     <div class="form-group">
                       <label>State of Residence</label><br>
                       <select name="state" class="form-control">
-                        <option value="Select State">Select State...</option>
+                        <option value="" style="display:none">Select State...</option>
                         @foreach ($states as $state)
                             <option value="{{ $state->name }}">{{ $state->name }}</option>
                         @endforeach
@@ -526,7 +527,7 @@
                     <div class="form-group">
                       <label>Country of Residence</label><br>
                       <select name="country" class="form-control" >
-                        <option value="">Select Country</option>
+                        <option value="" style="display:none">Select Country</option>
                       @foreach ($countries as $country)
                             <option value="{{ $country->name }}">{{ $country->name }}</option>
                         @endforeach
@@ -538,7 +539,7 @@
                     <div class="form-group">
                       <label>Occupation</label><br>
                       <select name="occupation" class="form-control" required>
-                        <option value="">Select Occupation...</option>
+                        <option value="" style="display:none">Select Occupation...</option>
                         <option value="Student">Student</option>
                         <option value="Employed">Employed</option>
                         <option value="Unemployed">Unemployed</option>
@@ -638,18 +639,9 @@
             <!-- End Feature One -->
           </div>
           <div class="col-12 col-lg-4 col-md-6 px-xxl-7" data-aos="fade-up" data-aos-duration="800" data-aos-once="true">
-            <!-- Start Feature One -->
-            <div class="bg-white px-8 pt-9 pb-7 rounded-4 mb-9 feature-cardOne-adjustments">
-              <div class="d-block mb-7">
-                <a href="#"><img src="image/logo.png" alt=""></a>
-              </div>
-              <a href="#" class="font-size-3 d-block mb-0 text-gray">Name of Person</a>
-              <h2 class="mt-n4"><a class="font-size-7 text-black-2 font-weight-bold mb-4" href="#">Case</a></h2>
-
-              <p class="mb-7 font-size-4 text-gray">We are looking for Enrollment Advisors who are looking to take 30-35 appointments per week. All leads are pre-scheduled.</p>
-
-            </div>
-            <!-- End Feature One -->
+            <form>
+                <input type="text" class=""
+            </form>
           </div>
 
 

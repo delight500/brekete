@@ -25,49 +25,159 @@
 
 @section('content')
         <div class="wrapper wrapper--w900">
+                                <form method="POST" action="{{ route('complaints.store') }}" enctype="multipart/form-data">
+
             <div class="card card-6">
                
                 <div class="card-body">
-                    <form method="POST" action="{{ route('complaints.store') }}">
                         @csrf
                         <div class="form-row">
-                            <div class="name">Full name</div>
+                            <div class="name">Complaint Type</div>
                             <div class="value">
-                                <input class="input--style-6" type="text" name="name">
+                                <select class="input--style-6 form-control" name="complaint_type" required>
+                                    <option value=""  style="display:none">Select Complaint Type</option>
+                                     @foreach ($complaint_types as $complaint_type)
+                                    <option value="{{ $complaint_type->name }}">{{ $complaint_type->name }}</option>
+                                    @endforeach
+                                </select>
                             </div>
                         </div>
                         <div class="form-row">
-                            <div class="name">Email address</div>
+                            <div class="name">Complaint Description</div>
                             <div class="value">
                                 <div class="input-group">
-                                    <input class="input--style-6" type="email" name="email" placeholder="example@email.com">
+                                    <textarea class="textarea--style-6" name="complaint" placeholder="Describe your case here" required></textarea>
                                 </div>
                             </div>
                         </div>
+
                         <div class="form-row">
-                            <div class="name">Message</div>
+                            <div class="name">Gender</div>
                             <div class="value">
-                                <div class="input-group">
-                                    <textarea class="textarea--style-6" name="message" placeholder="Message sent to the employer"></textarea>
-                                </div>
+                                <select class="input--style-6 form-control" name="gender"  required>
+                                    <option value=""  style="display:none">Select Gender</option>                                    
+                                    <option value="Female">Female</option>
+                                    <option value="Male">Male</option>
+                                </select>
                             </div>
                         </div>
+
                         <div class="form-row">
-                            <div class="name">Upload CV</div>
+                            <div class="name">Marital Status</div>
+                            <div class="value">
+                                <select class="input--style-6 form-control" name="name" required>
+                                    <option value="" style="display:none">Select your Marital Status</option>
+                                <option value="Single">Single</option>
+                                <option value="Married">Married</option>
+                                <option value="Widowed">Widowed</option>
+                                <option value="Widower">Widower</option>
+                                <option value="Engaged">Engaged</option>                                    
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="name">Residential Address</div>
+                             <div class="value">
+                                <input type="text" class="input--style-6 form-control" name="address" placeholder="Your Residential address" required >                                 
+                                
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="name">State of Residence</div>
+                            <div class="value">
+                                <select class="input--style-6 form-control" name="state" required>
+                                    <option value="" style="display:none">Select your State of Residence <option>
+                                    @foreach ($states as $state)
+                                        <option value="{{ $state->name }}">{{ $state->name }}</option>
+                                    @endforeach                                   
+                                </select>
+                            </div>
+                        </div>
+
+                        
+
+                        <div class="form-row">
+                            <div class="name">Country</div>
+                            <div class="value">
+                                <select class="input--style-6 form-control" name="country" required>
+                                <option value="" style="display:none">Select Country of Residence<option>  
+                                @foreach ($countries as $country)
+                                    <option value="{{ $country->name }}">{{ $country->name }}</option>
+                                @endforeach                                  
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="name">Occupation</div>
+                            <div class="value">
+                                <select class="input--style-6 form-control" name="occupation" required>
+                                <option value=""  style="display:none">Select Occupation<option>
+                                      <option value="Student">Student</option>
+                                    <option value="Employed">Employed</option>
+                                    <option value="Unemployed">Unemployed</option>
+                                    <option value="Retired">Retired</option>                           
+                                </select>
+                            </div>
+                        </div>                       
+                        
+                        <div class="form-row">
+                            <div class="name">Upload Affidavit</div>
                             <div class="value">
                                 <div class="input-group js-input-file">
-                                    <input class="input-file" type="file" name="file_cv" id="file">
+                                    <input class="input-file form-control{{ $errors->has('file') ? ' is-invalid' : '' }}" type="file" name="affidavit" id="file" required>
                                     <label class="label--file" for="file">Choose file</label>
                                     <span class="input-file__info">No file chosen</span>
-                                </div>
-                                <div class="label--desc">Upload your CV/Resume or any other relevant file. Max file size 50 MB</div>
+                                    @if ($errors->has('file'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('file') }}</strong>
+                                    </span>
+                                @endif
+                                   </div>
+                                <div class="label--desc">Upload your Affidavit</div>
                             </div>
                         </div>
-                    </form>
+
+                         <div class="form-row">
+                            <div class="name">Upload Passport</div>
+                            <div class="value">
+                                <div class="input-group js-input-file2">
+                                    <input class="input-file2 form-control{{ $errors->has('file') ? ' is-invalid' : '' }}" type="file" name="passport" id="file2" required>
+                                    <label class="label--file2" for="file2">Choose file</label>
+                                    @if ($errors->has('file'))
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $errors->first('file') }}</strong>
+                                        </span>
+                                    @endif
+                                    <span class="input-file__info2">No file chosen</span>
+                                </div>
+                                <div class="label--desc">Upload your passport</div>
+                            </div>
+                        </div>
+                         <div class="form-row">
+                            <div class="name">Upload Other </div>
+                            <div class="value">
+                                <div class="input-group js-input-file3">
+                                    <input class="input-file3 form-control{{ $errors->has('file') ? ' is-invalid' : '' }}" multiple="multiple" type="file" name="others[]" id="file3" required>
+                                    <label class="label--file" for="file3">Choose file</label>
+                                    @if ($errors->has('file'))
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $errors->first('file') }}</strong>
+                                        </span>
+                                    @endif
+                                    <span class="input-file__info3">No file chosen</span>
+                                </div>
+                                <div class="label--desc">Upload Other documents</div>
+                            </div>
+                        </div>
+                   
                 </div>
                 <div class="card-footer">
-                    <button class="btn btn--radius-2 btn--blue-2" type="submit">Send Application</button>
+                    <button class="btn btn--radius-2 btn--blue-2" name="submit" type="submit">Submit Complaint</button>
                 </div>
+                 </form>
             </div>
         </div>
    
@@ -78,5 +188,12 @@
 @stop
 
 @section('js')
+  @if (Session::has('flash_message'))
+             <script>
+                 $(window).bind("load", function() {
+                 swal("Congratulations!", "{{ Session::get('flash_message') }}", "success");
+                });
+            </script>
+     @endif
     <script src="/js/global.js"></script>
 @stop

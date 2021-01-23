@@ -9,9 +9,9 @@
 @section('content')
 <div class="container-fluid">
 
-<section class="content">
+    <section class="content">
       <div class="container-fluid">
-<br>
+        <br>
 
             <div class="row">
                 {{-- Flash message --}}

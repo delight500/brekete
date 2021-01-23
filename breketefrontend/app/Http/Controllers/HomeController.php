@@ -44,6 +44,7 @@ class HomeController extends Controller
     public function store(Request $request)
     {
         $code = rand(100000, 999999);
+        
         $complaints = Complaints::create([
             'name' => $request->name,
             'email' => $request->email,
@@ -107,6 +108,82 @@ class HomeController extends Controller
         );
         return redirect(route('home'));
     }
+
+
+
+    public function complaint_submit_store(Request $request){
+
+        $request->validate([
+          'affidavit' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+          'passport' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+
+        $code = rand(100000, 999999);
+        $auth = Auth::user();
+
+        $affidavit = $request->affidavit;
+        $affidavit->store('photos/affidavit');
+        $passport = $request->passport;
+        $passport->store('photos/passport');
+        $others = '';
+
+        foreach ($request->others as $photo) {
+            $others .= $photo . ',';
+            $photo->store('photos/other');
+        }
+
+        $complaints = Complaints::create([
+            'name' => $auth->name,
+            'email' => $auth->email,
+            'gender' => $request->gender,
+            'state' => $request->state,
+            'country' => $request->country,
+            'address' => $request->address,
+            'phone_number' => $auth->tel_number,
+            'complaint_type' => $request->complaint_type,
+            'complaint' => $request->complaint,
+            'tracking_code' => $code,
+            'complaint_status' => 'awaiting',
+            'staff_assigned' => 'nil',
+            'user_id' => $auth->id,
+            'year' => date('Y'),
+            'month' => date('m'),
+        ]);
+
+
+        ComplaintUploads::create([
+            'complaint_id' => $complaints->id,
+            'passport' => $passport,
+            'affidavit' => $affidavit,
+            'others' => $others,
+            'year' => date('Y'),
+            'month' => date('m'),
+        ]);
+
+        $awaiting_r = AwaitingReview::create([
+           'name' => $auth->name,
+            'email' => $auth->email,
+            'gender' => $request->gender,
+            'state' => $request->state,
+            'country' => $request->country,
+            'address' => $request->address,
+            'phone_number' => $auth->tel_number,
+            'complaint_type' => $request->complaint_type,
+            'complaint' => $request->complaint,
+            'tracking_code' => $code,
+            'complaint_status' => 'awaiting',
+            'staff_assigned' => 'nil',
+            'user_id' => $auth->id,
+            'year' => date('Y'),
+            'month' => date('m'),
+        ]);
+
+        Session::flash('flash_message','Success. Complaint Tracking Code:'.$code.'');
+        return redirect(route('dashboard.index'));
+    
+
+    }
+
 
     public function storeTestimonial(Request $request)
     {
