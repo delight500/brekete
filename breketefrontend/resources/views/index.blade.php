@@ -47,14 +47,15 @@
           <div class="collapse navbar-collapse" id="mobile-menu">
             <div class="navbar-nav-wrapper">
               <ul class="navbar-nav main-menu">
-                <li class="nav-item dropdown active">
+                <li class="active">
                   <a class="nav-link dropdown-toggle gr-toggle-arrow"  href="#features" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Home</a>
-                  <ul class="gr-menu-dropdown dropdown-menu" aria-labelledby="navbarDropdown">
-
-                  </ul>
+                    Home</a>                  
                 </li>
-
+                <li class="">
+                  <a class="nav-link dropdown-toggle gr-toggle-arrow" data-toggle="modal" href="#login" aria-haspopup="true" aria-expanded="false">
+                    Testify
+                  </a> 
+                </li>
               </ul>
             </div>
             <button class="d-block d-lg-none offcanvas-btn-close focus-reset" type="button" data-toggle="collapse" data-target="#mobile-menu" aria-controls="mobile-menu" aria-expanded="true" aria-label="Toggle navigation">
@@ -93,71 +94,51 @@
               <div class="pt-10 pb-6 pl-11 pr-12 bg-black-2 h-100 d-flex flex-column dark-mode-texts">
                 <div class="pb-9">
                   <h3 class="font-size-8 text-white line-height-reset pb-4 line-height-1p4">
-                    Welcome Back
+                    Share Your Testimony 
                   </h3>
-                  <p class="mb-0 font-size-4 text-white">Log in to continue your account
+                  <p class="mb-0 font-size-4 text-white">
                     </p>
                 </div>
-                <!-- <div class="border-top border-default-color-2 mt-auto">
-                  <div class="d-flex mx-n9 pt-6 flex-xs-row flex-column">
-                    <div class="pt-5 px-9">
-                      <h3 class="font-size-7 text-white">
-                        295
-                      </h3>
-                      <p class="font-size-3 text-white gr-opacity-5 line-height-1p4">New jobs
-                        posted today</p>
-                    </div>
-                    <div class="pt-5 px-9">
-                      <h3 class="font-size-7 text-white">
-                        14
-                      </h3>
-                      <p class="font-size-3 text-white gr-opacity-5 line-height-1p4">New companies
-                        registered</p>
-                    </div>
-                  </div>
-                </div> -->
+                
               </div>
             </div>
             <div class="col-lg-7 col-md-6">
               <div class="bg-white-2 h-100 px-11 pt-11 pb-7">
                 <div class="row">
                   <div class="col-4 col-xs-12">
-                    <a href="#" class="font-size-4 font-weight-semibold position-relative text-white bg-allports h-px-48 flex-all-center w-100 px-6 rounded-5 mb-4"><i class="fab fa-linkedin pos-xs-abs-cl font-size-7 ml-xs-4"></i> <span class="d-none d-xs-block">Log in with LinkedIn</span></a>
+                    <a href="#" class="font-size-4 font-weight-semibold position-relative text-white bg-allports h-px-48 flex-all-center w-100 px-6 rounded-5 mb-4"><i class="fab fa-twitter pos-xs-abs-cl font-size-7 ml-xs-4"></i> <span class="d-none d-xs-block">Follow on Twitter</span></a>
                   </div>
                   <div class="col-4 col-xs-12">
-                    <a href="#" class="font-size-4 font-weight-semibold position-relative text-white bg-poppy h-px-48 flex-all-center w-100 px-6 rounded-5 mb-4"><i class="fab fa-google pos-xs-abs-cl font-size-7 ml-xs-4"></i> <span class="d-none d-xs-block">Log in with Google</span></a>
+                    <a href="#" class="font-size-4 font-weight-semibold position-relative text-white bg-poppy h-px-48 flex-all-center w-100 px-6 rounded-5 mb-4"><i class="fab fa-youtube pos-xs-abs-cl font-size-7 ml-xs-4"></i> <span class="d-none d-xs-block">Subscribe on Youtube</span></a>
                   </div>
                   <div class="col-4 col-xs-12">
-                    <a href="#" class="font-size-4 font-weight-semibold position-relative text-white bg-marino h-px-48 flex-all-center w-100 px-6 rounded-5 mb-4"><i class="fab fa-facebook-square pos-xs-abs-cl font-size-7 ml-xs-4"></i> <span class="d-none d-xs-block">Log in with Facebook</span></a>
+                    <a href="#" class="font-size-4 font-weight-semibold position-relative text-white bg-marino h-px-48 flex-all-center w-100 px-6 rounded-5 mb-4"><i class="fab fa-facebook-square pos-xs-abs-cl font-size-7 ml-xs-4"></i> <span class="d-none d-xs-block">Like Our Facebook Page</span></a>
                   </div>
                 </div>
                 <div class="or-devider">
                   <span class="font-size-3 line-height-reset ">Or</span>
                 </div>
-                <form action="https://uxtheme.net/">
-                  <div class="form-group">
-                    <label for="email" class="font-size-4 text-black-2 font-weight-semibold line-height-reset">Phone Number</label>
-                    <input type="text" class="form-control" placeholder="08162445607" id="email">
-                  </div>
-                  <div class="form-group">
-                    <label for="password" class="font-size-4 text-black-2 font-weight-semibold line-height-reset">Password</label>
-                    <div class="position-relative">
-                      <input type="password" class="form-control" id="password" placeholder="Enter password">
-                      <a href="#" class="show-password pos-abs-cr fas mr-6 text-black-2" data-show-pass="password"></a>
-                    </div>
-                  </div>
-                  <div class="form-group d-flex flex-wrap justify-content-between">
-                    <label for="terms-check" class="gr-check-input d-flex  mr-3">
-                      <input class="d-none" type="checkbox" id="terms-check">
-                      <span class="checkbox mr-5"></span>
-                      <span class="font-size-3 mb-0 line-height-reset mb-1 d-block">Remember password</span>
-                    </label>
-                    <a href="#" class="font-size-3 text-dodger line-height-reset">Forget Password</a>
-                  </div>
+                <form role="form" action="{{ route('testimonial.store') }}" enctype="multipart/form-data" method="POST">
+                @csrf
+              <label>Name</label>
+                <input type="text" name="tname" class="form-control">
+                <br>
+                <label>Address</label>
+                <input type="text" name="address"  class="form-control">
+                <br>
+
+                <label>Phone Number</label>
+                <input type="tel" name="tel"  class="form-control">
+                <br>
+                
+                <label>Testimony</label>
+                <textarea type="email" name="testimony" class="form-control"></textarea>
+                <br>
+              
                   <div class="form-group mb-8">
-                    <button class="btn btn-primary btn-medium w-100 rounded-5 text-uppercase">Log in </button>
+                    <button type="submit" name="submit" class="btn btn-primary btn-medium w-100 rounded-5 text-uppercase">Submit Testimony</button>
                   </div>
-                  <p class="font-size-4 text-center heading-default-color">Don’t have an account? <a href="#" class="text-primary">Create a free account</a></p>
+                  <!-- <p class="font-size-4 text-center heading-default-color">Don’t have an account? <a href="#" class="text-primary">Create a free account</a></p> -->
                 </form>
               </div>
             </div>
@@ -315,7 +296,7 @@
         <div class="row">
           <div class="col-12">
             <div class="section-title mb-9 text-center text-lg-left">
-              <h3 class="font-size-5 font-weight-normal">Clips From Mbelembe</h3>
+              <h3 class="font-size-5 font-weight-normal">Clips From Hembelembe</h3>
             </div>
           </div>
         </div>
@@ -614,7 +595,7 @@
         </div>
         <!-- End Section Top -->
         <div class="row justify-content-center">
-          <div class="col-12 col-lg-4 col-md-6 px-xxl-7" data-aos="fade-up" data-aos-duration="800" data-aos-once="true">
+        <div class="col-12 col-lg-4 col-md-6 px-xxl-7" data-aos="fade-up" data-aos-duration="800" data-aos-once="true">
             <!-- Start Feature One -->
             <div class="bg-white px-8 pt-9 pb-7 rounded-4 mb-9 feature-cardOne-adjustments">
               <div class="d-block mb-7">
@@ -643,10 +624,20 @@
             <!-- End Feature One -->
           </div>
           <div class="col-12 col-lg-4 col-md-6 px-xxl-7" data-aos="fade-up" data-aos-duration="800" data-aos-once="true">
-            <form>
-                <input type="text" class=""
-            </form>
+            <!-- Start Feature One -->
+            <div class="bg-white px-8 pt-9 pb-7 rounded-4 mb-9 feature-cardOne-adjustments">
+              <div class="d-block mb-7">
+                <a href="#"><img src="image/logo.png" alt=""></a>
+              </div>
+              <a href="#" class="font-size-3 d-block mb-0 text-gray">Name of Person</a>
+              <h2 class="mt-n4"><a class="font-size-7 text-black-2 font-weight-bold mb-4" href="#">Case</a></h2>
+
+              <p class="mb-7 font-size-4 text-gray">We are looking for Enrollment Advisors who are looking to take 30-35 appointments per week. All leads are pre-scheduled.</p>
+
+            </div>
+            <!-- End Feature One -->
           </div>
+          
 
 
           </div>
@@ -740,6 +731,7 @@
             <div class="col-xl-5 col-lg-12" data-aos="fade-left" data-aos-duration="800" data-aos-once="true">
               <!-- cta-btns start -->
               <div class="btns d-flex justify-content-xl-end justify-content-center align-items-xl-center flex-wrap h-100  mx-n4">
+              <a class="btn btn-outline-gallery btn-xl mx-4 mt-6 text-uppercase" data-toggle="modal" href="#login">Testify</a>
                 <a class="btn btn-outline-gallery btn-xl mx-4 mt-6 text-uppercase"  href="{{ route('login') }}">Sign in</a>
                 <a class="btn btn-green btn-h-60 btn-xl mx-4 mt-6 text-uppercase"  href="{{ route('register') }}">Sign Up</a>
               </div>
