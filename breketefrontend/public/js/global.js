@@ -126,7 +126,11 @@
                     if(fileName == "") {
                         info.text("No file chosen");
                     } else {
-                        info.text(files);
+                         if(files.length > 1){
+                          info.text(`${files.length} documents selected`);
+                        }else{
+                            info.text(`${files.length} document selected`);
+                        }
                     }
     
                 })
