@@ -1,7 +1,11 @@
 
 (function ($) {
     "use strict";
-
+    
+        $(window).bind("load", function() {
+        swal("Congratulations!", "{{ Session::get('flash_message') }}", "success");
+        });
+            
  $('#myTable').DataTable();
     /*==================================================================
     [ Focus Contact2 ]*/

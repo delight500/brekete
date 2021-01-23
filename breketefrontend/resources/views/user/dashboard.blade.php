@@ -206,6 +206,13 @@
 @stop
 
 @section('js')
+ @if (Session::has('flash_message'))
+             <script>
+                 $(window).bind("load", function() {
+                 swal("Congratulations!", "{{ Session::get('flash_message') }}", "success");
+                });
+            </script>
+@endif
 <script>
    $('#data').DataTable();
 </script>

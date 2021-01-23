@@ -130,13 +130,18 @@
                                     <input class="input-file form-control{{ $errors->has('file') ? ' is-invalid' : '' }}" type="file" name="affidavit" id="file" required>
                                     <label class="label--file" for="file">Choose file</label>
                                     <span class="input-file__info">No file chosen</span>
-                                    @if ($errors->has('file'))
+                                    @if ($errors->has('passport'))
                                     <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('file') }}</strong>
+                                        <strong>{{ $errors->first('passport') }}</strong>
                                     </span>
                                 @endif
                                    </div>
                                 <div class="label--desc">Upload your Affidavit</div>
+                                @error('affidavit')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                @enderror
                             </div>
                         </div>
 
@@ -146,14 +151,15 @@
                                 <div class="input-group js-input-file2">
                                     <input class="input-file2 form-control{{ $errors->has('file') ? ' is-invalid' : '' }}" type="file" name="passport" id="file2" required>
                                     <label class="label--file2" for="file2">Choose file</label>
-                                    @if ($errors->has('file'))
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $errors->first('file') }}</strong>
-                                        </span>
-                                    @endif
+
                                     <span class="input-file__info2">No file chosen</span>
                                 </div>
                                 <div class="label--desc">Upload your passport</div>
+                                 @error('passport')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                @enderror
                             </div>
                         </div>
                          <div class="form-row">
@@ -162,11 +168,12 @@
                                 <div class="input-group js-input-file3">
                                     <input class="input-file3 form-control{{ $errors->has('file') ? ' is-invalid' : '' }}" multiple="multiple" type="file" name="others[]" id="file3" required>
                                     <label class="label--file" for="file3">Choose file</label>
-                                    @if ($errors->has('file'))
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $errors->first('file') }}</strong>
-                                        </span>
-                                    @endif
+                                    @error('role')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                    @enderror
+
                                     <span class="input-file__info3">No file chosen</span>
                                 </div>
                                 <div class="label--desc">Upload Other documents</div>

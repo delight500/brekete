@@ -357,7 +357,7 @@ return [
                 [
                     'type' => 'js',
                     'asset' => true,
-                    'location' => '//cdn.jsdelivr.net/npm/sweetalert2@8',
+                    'location' => 'https://unpkg.com/sweetalert/dist/sweetalert.min.js',
                 ],
             ],
         ],
