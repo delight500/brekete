@@ -244,11 +244,12 @@
               Track Your Complaint here</h1>
             <div class="">
               <!-- .search-form -->
-              <form action="" class="search-form shadow-6">
+              <form action="{{ route('status.view') }}" class="search-form shadow-6">
+              {{ csrf_field() }}
                 <div class="filter-search-form-1 bg-white rounded-sm shadow-4">
                   <div class="filter-inputs">
                     <div class="form-group position-relative">
-                      <input class="form-control focus-reset pl-13" type="text" id="keyword" placeholder="Enter Your Tracking Code">
+                      <input class="form-control focus-reset pl-13" name="code" type="text" id="keyword" placeholder="Enter Your Tracking Code">
                       <span class="h-100 w-px-50 pos-abs-tl d-flex align-items-center justify-content-center font-size-6">
                         <i class="icon icon-zoom-2 text-primary font-weight-bold"></i></span>
                     </div>
@@ -267,8 +268,8 @@
                   </div>
                   <!-- .Hero Button -->
                   <div class="button-block">
-                    <button class="btn btn-primary line-height-reset h-100 btn-submit w-100 text-uppercase" data-toggle="modal" 
-                    data-target="#exampleModalCenter">Track</button>
+                    <button class="btn btn-primary line-height-reset h-100 btn-submit w-100 text-uppercase" 
+                   >Track</button>
                     
                   </div>
                   <!-- ./Hero Button -->

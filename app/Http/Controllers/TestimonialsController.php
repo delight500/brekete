@@ -24,10 +24,10 @@ class TestimonialsController extends Controller
         $testimonial = count(Testimonial::all());
         $awaiting = count(AwaitingReview::all());
         $flagged = count(FlaggedComplaints::all());
-        $testimonials = Testimonial::all();
+        $testimonials1 = Testimonial::all();
         
         return view('admin.testimonials.index')->with([
-            'testimonials'=>$testimonials,
+            'testimonials1'=>$testimonials1,
             'awaiting' => $awaiting,
             'pending' =>  $pending,
             'resolved' => $resolved,

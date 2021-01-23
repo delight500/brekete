@@ -26,6 +26,35 @@
       <div class="container-fluid">
         <!-- Small boxes (Stat box) -->
         <div class="row">
+        <div class="col-lg-6 col-6">
+
+<div class="small-box bg-success">
+  <div class="inner">
+    <h3>{{$complaints ?? '0'}}</h3>
+
+    <p>Total Complaints</p>
+  </div>
+  <div class="icon">
+    <i class="ion ion-pie-graph"></i>
+  </div>
+  <a href="#" class="small-box-footer"><i class="fas fa-arrow-circle-up"></i></a>
+</div>
+</div>
+
+<div class="col-lg-6 col-6">
+
+<div class="small-box bg-primary">
+  <div class="inner">
+    <h3>{{$testimonial ?? '0'}}</h3>
+
+    <p>Total Testimonials</p>
+  </div>
+  <div class="icon">
+    <i class="ion ion-pie-graph"></i>
+  </div>
+  <a href="#" class="small-box-footer"><i class="fas fa-arrow-circle-up"></i></a>
+</div>
+</div>
           <div class="col-lg-3 col-6">
             <!-- small box -->
             <div class="small-box bg-danger">
@@ -38,7 +67,7 @@
               <div class="icon">
                 <i class="ion ion-person"></i>
               </div>
-              <a href="./report.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="#" class="small-box-footer"><i class="fas fa-arrow-circle-up"></i></a>
             </div>
           </div>
           <!-- ./col -->
@@ -52,7 +81,7 @@
               <div class="icon">
                 <i class="ion ion-stats-bars"></i>
               </div>
-              <a href="./resolve.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="#" class="small-box-footer"><i class="fas fa-arrow-circle-up"></i></a>
             </div>
           </div>
           <!-- ./col -->
@@ -67,7 +96,7 @@
               <div class="icon">
                 <i class="ion ion-person-add"></i>
               </div>
-              <a href="./pend.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="#" class="small-box-footer"><i class="fas fa-arrow-circle-up"></i></a>
             </div>
           </div>
 
@@ -82,9 +111,9 @@
               <div class="icon">
                 <i class="ion ion-pie-graph"></i>
               </div>
-              <a href="./invalid.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="#" class="small-box-footer"><i class="fas fa-arrow-circle-up"></i></a>
             </div>
-          </div>
+          </div>          
 
 
 
@@ -193,12 +222,11 @@
             <!-- /.info-box -->
           </div>
           <!-- /.col --success
-        </div>
-        <!-- /.row -->
-        <!-- Main row -->
+        </div>    
+       
 
-        <!-- /.row (main row) -->
-      </div><!-- /.container-fluid -->
+        /.row (main row) -->
+      </div>
     </section>
 
     <section class="content">
@@ -277,10 +305,10 @@
 
 
           </div>
-          <!-- /.col (RIGHT) -->
+          <!-- /.col (up) -->
         </div>
         <!-- /.row -->
-        <div class="row">
+        <!-- <div class="row">
           <div class="col-md-12">
           <div class="card card-primary">
               <div class="card-header">
@@ -295,16 +323,15 @@
               <div class="card-body">
                 <canvas id="pieChart2" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
               </div>
-              <!-- /.card-body -->
             </div>
           </div>
-        </div>
+        </div> -->
       </div><!-- /.container-fluid -->
     </section>
 
 
     </div>
-    @include('layouts.chartxs.chart')
+   
 
 @endsection
 

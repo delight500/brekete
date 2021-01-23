@@ -33,35 +33,35 @@
                                             <th>S/N</th>
                                             <th>Name</th>
                                             <th>Phone</th>
-                                            <th>State</th>
-                                            <th>Response</th>
-                                            <th>Date Lodged</th>
+                                            <th>Address</th>
+                                            <th>Testimony</th>
+                                            <th>Date Testified</th>
                                             <th>Action</th>
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        @if (count($testimonials)>0)
+                                        @if (count($testimonials1)>0)
 
-                                            @foreach ($testimonials as $testimonial)
+                                            @foreach ($testimonials1 as $testimony)
                                                 <tr>
                                                     <td>{{ $loop->iteration }}</td>
-                                                    <td>{{ $testimonial->name }}</td>
-                                                    <td>{{ $testimonial->phone_number }}</td>
-                                                    <td>{{ $testimonial->state }}</td>
-                                                    <td>{{ $testimonial->response }}</td>
-                                                    <td>{{ $testimonial->created_at }}</td>
-                                                    <td><span class="right badge badge-success">{{ $testimonial->complaint_status }}</span></td>
+                                                    <td>{{ $testimony->name }}</td>
+                                                    <td>{{ $testimony->phone_number }}</td>
+                                                    <td>{{ $testimony->address }}</td>
+                                                    <td>{{ $testimony->response }}</td>
+                                                    <td>{{ $testimony->created_at }}</td>
+                                                    <!-- <td><span class="right badge badge-success">{{ $testimony->complaint_status }}</span></td> -->
                                                     <td>
                                                         <!--modal begin-->
 
-                                                        <button class="btn btn-primary btn-sm btn-block" data-toggle="modal" data-target="{{ '#Modal' . $testimonial->id }}" >View</button>
+                                                        <button class="btn btn-primary btn-sm btn-block" data-toggle="modal" data-target="{{ '#Modal' . $testimony->id }}" >View</button>
 
-                                                        <div class="modal fade" id="{{ 'Modal' . $testimonial->id }}" tabindex="-1" role="dialog"
+                                                        <div class="modal fade" id="{{ 'Modal' . $testimony->id }}" tabindex="-1" role="dialog"
                                                              aria-labelledby="ModalLabel" aria-hidden="true">
                                                             <div class="modal-dialog" role="document">
                                                                 <div class="modal-content">
                                                                     <div class="modal-header">
-                                                                        <h5 class="modal-title" id="ModalLabel">Complaints Review
+                                                                        <h5 class="modal-title" id="ModalLabel">Testimony
                                                                         </h5>
                                                                         <button type="button" class="close" data-dismiss="modal"
                                                                                 aria-label="Close">
@@ -80,17 +80,15 @@
                                                                             <div class="card-body">
                                                                                 <dl class="row">
                                                                                     <dt class="col-sm-4">Name</dt>
-                                                                                    <dd class="col-sm-8">{{ $testimonial->name}}.</dd>
+                                                                                    <dd class="col-sm-8">{{ $testimony->name}}.</dd>
                                                                                     <dt class="col-sm-4">Phone Number</dt>
-                                                                                    <dd class="col-sm-8">{{ $testimonial->phone_number }}</dd>
-                                                                                    <dt class="col-sm-4">Email</dt>
-                                                                                    <dd class="col-sm-8">{{ $testimonial->state }}</dd>
-                                                                                    <dt class="col-sm-4">Response</dt>
-                                                                                    <dd class="col-sm-8"><textarea class="form-control" readonly>{{ $testimonial->complaint }} </textarea></dd>
-                                                                                    <dt class="col-sm-4">Date Lodged</dt>
-                                                                                    <dd class="col-sm-8">{{ $testimonial->created_at }}</dd>
-                                                                                    <dt class="col-sm-4">Attachements</dt>
-                                                                                    <dd class="col-sm-8"><button class="btn btn-secondary">view attachments</button></dd>
+                                                                                    <dd class="col-sm-8">{{ $testimony->phone_number }}</dd>  
+                                                                                    <dt class="col-sm-4">Address</dt>                                                                                 
+                                                                                    <dd class="col-sm-8">{{ $testimony->address }}</dd>
+                                                                                    <dt class="col-sm-4">Testimony</dt>
+                                                                                    <dd class="col-sm-8"><textarea class="form-control" readonly>{{ $testimony->response }} </textarea></dd>
+                                                                                    <dt class="col-sm-4">Date Testified</dt>
+                                                                                    <dd class="col-sm-8">{{ $testimony->created_at }}</dd>                                                                                    
 
                                                                                 </dl>
                                                                             </div>

@@ -15,6 +15,7 @@ use App\Models\Testimonial;
 use App\Models\ComplaintUploads;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
@@ -39,6 +40,16 @@ class HomeController extends Controller
             'countries' => $countries,
             'states' => $states,
             'complaint_types' => $complaint_types,
+        ]);
+    }
+
+    public function status(Request $request)
+    {
+        $key = trim($request->get('code'));
+        $tracking_code =  DB::table('complaints')->where('tracking_code', $key)->get();
+
+        return view('status')->with([
+            'details' => $tracking_code,
         ]);
     }
 

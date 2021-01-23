@@ -11,10 +11,10 @@
     //- DONUT CHART -
     //-------------
     // Get context with jQuery - using jQuery's .get() method.
-    $reportvar= {{$complaints}};
-    $resolvedvar= {{$resolved}};
-    $pendingvar= {{$pending}};
-    $testimonialvar= {{$testimonial}};
+    $reportvar = 11;
+    $resolvedvar = 23;
+    $pendingvar = 45;
+    $testimonialvar = 27;
 
     var donutChartCanvas = $('#donutChart').get(0).getContext('2d')
     //For douhnut data

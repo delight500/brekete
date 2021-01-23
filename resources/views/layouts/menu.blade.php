@@ -45,7 +45,6 @@
     </a>
 </li>
 @endcan
-
 @can('manage-users')
 <li class="nav-header brand-link">OTHER COMPLAINTS</li>
 

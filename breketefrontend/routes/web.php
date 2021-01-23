@@ -15,6 +15,8 @@ use Illuminate\Support\Facades\Route;
 Route::redirect('/user', '/users');
 Route::redirect('/', '/home');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/home/status', [App\Http\Controllers\HomeController::class, 'status'])->name('status.view');
 Route::post('/home', [App\Http\Controllers\HomeController::class, 'store'])->name('home.store');
 Route::post('/testimonial', [App\Http\Controllers\TestimonialsController::class, 'storeTestimonial'])->name('testimonial.store');
 

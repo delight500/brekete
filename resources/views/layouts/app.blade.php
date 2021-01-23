@@ -15,6 +15,7 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
 <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.22/b-1.6.5/b-html5-1.6.5/fh-3.1.7/r-2.2.6/rr-1.2.7/sb-1.0.0/sl-1.3.1/datatables.min.js"></script>
 <script src="chart.js/Chart.min.js"></script>
+<!-- <link href="chart.js/Chart.min.css" rel="stylesheet"> -->
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
           integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous"/>
@@ -38,6 +39,7 @@
             @yield('content')
         </section>
     </div>
+
 @include('layouts.footer')
 
 </div>
@@ -48,6 +50,5 @@
    $('#data').DataTable();
    $('#example').DataTable();
 </script>
-
 </body>
 </html>
