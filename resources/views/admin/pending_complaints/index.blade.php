@@ -102,14 +102,49 @@
                                                                                         <dd class="col-sm-8">{{ $complaint->created_at }}</dd>
                                                                                         <dt class="col-sm-4">Attachments</dt>
                                                                                         <dd class="col-sm-8"><button class="btn btn-secondary">view attachments</button></dd>
-
+                                                                                       
                                                                                     </dl>
+                                                                                    @if($complaint->staff_assigned == 'nil')
+                                                                                    <form method="POST"  action="{{'/admin/pending/assign_user/' . $complaint->id}}">
+                                                                                        @csrf                                                                                
+                                                                                        @can('manage-users')
+                                                                                        <div class="form-group row">
+                                                                                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('Assign Staff') }}</label>
+                                                                                            <div class="col-md-6">
+                                                                                                <select name="staff_name" class="form-control">
+                                                                                                    <option value=""  style="display:none">Select Staff</option>
+                                                                                                    @foreach ($staffs as $staff)
+                                                                                                        <option value="{{ $staff->name }}">{{ $staff->name }}</option>
+                                                                                                    @endforeach
+                                                                                                </select>
+                                                    
+                                                                                            </div>
+                                                                                        </div>
+
+                                                                                        <div class="form-group row mb-0">
+                                                                                            <div class="col-md-6 offset-md-4">
+                                                                                                <button type="submit" class="btn btn-primary">
+                                                                                                    {{ __('SAVE') }}
+                                                                                                </button>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        @endcan
+
+                                                                                    
+                                                                                        
+                                                                                    </form>
+                                                                                    @endif
                                                                                 </div>
                                                                                 <!-- /.card-body -->
                                                                             </div>
                                                                             <!-- /.card -->
                                                                             <div class="modal-footer">
+                                                                               
+                                                                                @if($complaint->staff_assigned == 'nil')
+                                                                                <p class="card-text text-danger"> {"Yet to assign a Staff"}</p>
 
+                                                                                @endif
+                                                                                @if($complaint->staff_assigned !== 'nil')
                                                                                 <form action="{{'/admin/pending/resolve/' . $complaint->id}}" method="post" >
 
                                                                                     @csrf
@@ -117,7 +152,7 @@
                                                                                     <button type="submit" class="btn btn-success" >Resolve</button>
 
                                                                                 </form>
-
+                                                                                @endif
 
                                                                                 <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
 

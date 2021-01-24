@@ -74,6 +74,7 @@ Route::post('/flagged/delete/{id}', [App\Http\Controllers\FlaggedComplaintsContr
 // PENDING COMPLAINTS CRUD
 Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'can:resolve'] ], function () {
 Route::get('/pending', [App\Http\Controllers\PendingComplaintsController::class, 'index'])->name('pending');
+Route::post('/pending/assign_user/{id}', [App\Http\Controllers\PendingComplaintsController::class, 'assign_staff'])->name('pending.user.add');
 Route::post('/pending/resolve/{id}', [App\Http\Controllers\PendingComplaintsController::class, 'resolve'])->name('pending.resolve');
 Route::post('/pending/flagged/{id}', [App\Http\Controllers\PendingComplaintsController::class, 'flagged'])->name('pending.flagged');
 });

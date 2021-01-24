@@ -40,13 +40,13 @@ class UserSeeder extends Seeder
         $complantattendant = User::create([
             'name' => 'Complant Attendant',
             'email' => 'complantattendant@mail.com',
-            'password' => Hash::make('comppassword'),
+            'password' => Hash::make('password'),
             'status_id' => '2',
          ]);
         $resolutionattendant = User::create([
             'name' => 'Resolution Attendant',
             'email' => 'resolutionattendant@mail.com',
-            'password' => Hash::make('respassword'),
+            'password' => Hash::make('password'),
             'status_id' => '2',
         ]);
 

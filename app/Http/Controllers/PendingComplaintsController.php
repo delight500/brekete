@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Session;
 use App\Models\AwaitingReview;
 use App\Models\FlaggedComplaints;
 use App\Models\ResolvedComplaints;
+use App\Models\Staffs;
 use App\Models\Testimonial;
 
 
@@ -19,6 +20,8 @@ class PendingComplaintsController extends Controller
      public function index()
     {
         $complaint = Complaints::where('complaint_status', 'pending')->orderBY('id', 'DESC')->get();
+        $staffs = Staffs::all();
+
         $complaints = count(Complaints::all());
         $resolved = count(ResolvedComplaints::all());
         $pending = count(DB::table('complaints')->where('complaint_status', 'pending')->get());
@@ -33,10 +36,27 @@ class PendingComplaintsController extends Controller
             'resolved' => $resolved,
             'complaints' => $complaints,
             'testimonial' => $testimonial,
-            'flagged' => $flagged
+            'flagged' => $flagged,
+            'staffs' => $staffs
         ]);
     }
 
+    public function assign_staff(Request $request, $id)
+    {
+        Complaints::where('id', $id)->update(['staff_assigned' => $request->staff_name]);
+
+        $auth = Auth::user();
+
+        Activites::create([
+            'description' =>$auth->name.' Assigned staff to a complaint.',
+            'username' => $auth->name,
+            'privilage' => implode(' ', $auth->roles->pluck('name')->toArray()),
+            'status' => 'pending'
+        ]);
+
+        Session::flash('flash_message', 'staff added to complaint');
+        return redirect(route('pending'));
+    }
 
     public function resolve(Request $request, $id)
     {
